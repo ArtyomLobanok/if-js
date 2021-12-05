@@ -6,7 +6,9 @@ student +=user;
 console.log(user);
 
 //2 stage ht
-let test = 1;
-test = test++;
-test = +test;
-
+let test;
+test=1;
+test++;
+test+=1;
+test-=1;
+console.log(test);
