@@ -12,3 +12,7 @@ test++;
 test+=1;
 test-=1;
 console.log(test);
+console.log(typeof test);
+test=Boolean(test);
+console.log(test);
+console.log(typeof test);
