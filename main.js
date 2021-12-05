@@ -26,4 +26,17 @@ for (let i=0; i<array.length; i++) {
 console.log(result)
 
 //4 stage ht
+let arr2= [2, 5, 8, 15, 0, 6, 20, 3];
+for (let i=0; i<arr2.length; i++) {
+    if (arr2[i]>5 && arr2[i]<10) {
+        console.log(arr2[i])
+    }
+}
 
+//5 stage ht
+let arr3= [2, 5, 8, 15, 0, 6, 20, 3];
+for (let i=0; i<arr2.length; i++) {
+    if (arr2[i]%2 === 0) {
+        console.log(arr3[i])
+    }
+}
