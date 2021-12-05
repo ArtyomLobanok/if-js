@@ -9,11 +9,12 @@ console.log(user);
 let test;
 test=1;
 test++;
-test+=1;
+test+='1';
+console.log(test);
 test-=1;
 console.log(test);
 console.log(typeof test);
-test=Boolean(test);
+test=!!test;
 console.log(test);
 console.log(typeof test);
 
@@ -55,3 +56,30 @@ let number = 1000;
     }
 }
 console.log(sum);
+
+/*FizzBuzz
+Требуется написать функцию, выводящую в консоль числа от 1 до n,
+где n — это целое число, которая функция принимает в качестве параметра,
+с такими условиями:
+вывод fizz вместо чисел, кратных 3;
+вывод buzz вместо чисел, кратных 5;
+вывод fizzbuzz вместо чисел, кратных как 3, так и 5.*/
+
+function  func(number) {
+    for(let i=1; i<=number; i++){
+        let resultNumber = i;
+        if(Number.isInteger(i)) {
+            if(i % 3 === 0) {
+                resultNumber = 'fizz';
+            }
+            if(i % 5 === 0) {
+                resultNumber = "buzz";
+            }
+            if(i % 3 === 0 && i % 5 === 0) {
+                resultNumber = 'fizzbuzz';
+            }
+        }
+        console.log(resultNumber);
+    }
+}
+func(15);
