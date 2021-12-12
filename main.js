@@ -225,3 +225,54 @@ function unique(arr) {
 }
 let arr = [1,5,2,3,4,3,2,4,1,5,6];
 console.log(unique(arr) );*/
+
+//lesson-4
+//Home-task-4
+//№1 Carry sum console.log(sum(5)(2))
+
+function sum(a,b) {
+    return a + b;
+}
+
+function curry(callback) {
+    return function curried(...args) {
+        if(args.length >= callback.length) {
+            return callback.call(this, ...args);
+        }
+
+       /* return function InviteArgs(...newArgs) {
+            return curried.call(this, ...args.concat(newArgs))
+        }*/
+        return curried.bind(this, ...args);
+    }
+}
+
+const Sum = curry(sum)
+console.log(
+    Sum(2)(5)
+);
+
+//№2 Покрасьте абзацы по клику (событие click)
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+let currentColor=0;
+    document.getElementById("text1").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const temp = document.getElementById("text1");
+        temp.style.color = colors[currentColor];
+    })
+document.getElementById("text2").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const a = document.getElementById("text2");
+        a.style.color = colors[currentColor];
+    })
+document.getElementById("text3").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const a = document.getElementById("text3");
+        a.style.color = colors[currentColor];
+    })
