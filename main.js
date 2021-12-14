@@ -229,30 +229,18 @@ console.log(unique(arr) );*/
 //lesson-4
 //Home-task-4
 //№1 Carry sum console.log(sum(5)(2))
-
-function sum(a,b) {
-    return a + b;
+const discount = 2;
+const price = 5;
+function sum(a) {
+    return function(b) {
+        return a + b;
+    };
+    module.exports = sum;
 }
+console.log(sum(discount)(price))
 
-function curry(callback) {
-    return function curried(...args) {
-        if(args.length >= callback.length) {
-            return callback.call(this, ...args);
-        }
 
-       /* return function InviteArgs(...newArgs) {
-            return curried.call(this, ...args.concat(newArgs))
-        }*/
-        return curried.bind(this, ...args);
-    }
-}
-
-const Sum = curry(sum)
-console.log(
-    Sum(2)(5)
-);
-
-//№2 Покрасьте абзацы по клику (событие click)
+/*//№2 Покрасьте абзацы по клику (событие click)
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 let currentColor=0;
     document.getElementById("text1").addEventListener("click",
@@ -275,4 +263,4 @@ document.getElementById("text3").addEventListener("click",
         if (currentColor>colors.length) currentColor=0;
         const a = document.getElementById("text3");
         a.style.color = colors[currentColor];
-    })
+    })*/
