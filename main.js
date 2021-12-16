@@ -327,27 +327,16 @@ const data = [
         hotel: 'Hotel Rehberge Berlin Mitte',
     },
 ];
-/*
-let inputName = "Germany";
-const Search = data.find(Search => Search.country === inputName);
-console.log(Search)*/
 
+const formatStr = (RestPlace) => Object.values(RestPlace).join(',')
 
-function searchLocation(str){
-    str=str.toUpperCase();
-    for(let i = 0; i < data.length; i++) {
-        if(data[i].country.toUpperCase() === str || data[i].city.toUpperCase() === str || data[i].hotel.toUpperCase() === str) {
-            console.log(data[i]);
-        }
-    }
+function getSearchHotel(str, data) {
+    const reg = new RegExp(str, 'i')
+    return data
+        .filter((RestPlace) => reg.test(formatStr(RestPlace)))
+        .map(RestPlace => formatStr(RestPlace));
 }
-console.log(searchLocation('netherlands'))
 
-function searchData (input) {
-    for (let i = 0; i < data.length; i++) {
-        if (Object.values(data[i]).includes(input)) {
-            console.log(Object.values(data[i]));
-        }
-    }
-}
-console.log(searchData('Germany'))
+console.log(getSearchHotel("ber", data));
+
+
