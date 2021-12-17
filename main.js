@@ -225,3 +225,118 @@ function unique(arr) {
 }
 let arr = [1,5,2,3,4,3,2,4,1,5,6];
 console.log(unique(arr) );*/
+
+//lesson-4
+//Home-task-4
+//№1 Carry sum console.log(sum(5)(2))
+/*const discount = 2;
+const price = 5;
+function sum(a) {
+    return function(b) {
+        return a + b;
+    };
+}
+console.log(sum(discount)(price))*/
+
+
+/*//№2 Покрасьте абзацы по клику (событие click)
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+let currentColor=0;
+    document.getElementById("text1").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const temp = document.getElementById("text1");
+        temp.style.color = colors[currentColor];
+    })
+document.getElementById("text2").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const a = document.getElementById("text2");
+        a.style.color = colors[currentColor];
+    })
+document.getElementById("text3").addEventListener("click",
+    function col() {
+        currentColor++;
+        if (currentColor>colors.length) currentColor=0;
+        const a = document.getElementById("text3");
+        a.style.color = colors[currentColor];
+    })*/
+
+//lesson-5
+//Home-task-5
+
+//№1 Преобразование формата даты
+
+function ChangeDate(date) {
+    const dateReg = /^\d{4}([./-])\d{2}\1\d{2}$/;
+    if (!date.replace(dateReg, '')) {
+        date = date.split('-').reverse().join('.');
+        return date;
+    }
+    {
+        return 'Error, entered data incorrect, please enter data in format (yyyy-mm-dd)';
+    }
+}
+console.log(ChangeDate('1990-12-02'))
+console.log(ChangeDate('2020-11-26'))
+console.log(ChangeDate('19900-12-02'))
+
+//№2 Поиск объектов размещения:
+
+const data = [
+    {
+        country: 'Russia',
+        city: 'Saint Petersburg',
+        hotel: 'Hotel Leopold',
+    },
+    {
+        country: 'Spain',
+        city: 'Santa Cruz de Tenerife',
+        hotel: 'Apartment Sunshine',
+    },
+    {
+        country: 'Slowakia',
+        city: 'Vysokie Tatry',
+        hotel: 'Villa Kunerad',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hostel Friendship',
+    },
+    {
+        country: 'Indonesia',
+        city: 'Bali',
+        hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+        country: 'Netherlands',
+        city: 'Rotterdam',
+        hotel: 'King Kong Hostel',
+    },
+    {
+        country: 'Marocco',
+        city: 'Ourika',
+        hotel: 'Rokoko Hotel',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+];
+
+const formatStr = (RestPlace) => Object.values(RestPlace).join(',')
+
+function getSearchHotel(str, data) {
+    const reg = new RegExp(str, 'i')
+    return data
+        .filter((RestPlace) => reg.test(formatStr(RestPlace)))
+        .map(RestPlace => formatStr(RestPlace));
+}
+
+console.log(getSearchHotel("ber", data));
+
+
