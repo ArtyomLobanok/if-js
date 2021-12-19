@@ -410,11 +410,6 @@ const hotels2 = [
         country: 'Italy',
     },
     {
-        name: 'The Andaman Resort',
-        city: 'Port Dickson',
-        country: 'Malaysia',
-    },
-    {
         name: 'Black Penny Villas',
         city: 'BTDC, Nuca Dua',
         country: 'Indonesia',
@@ -579,11 +574,6 @@ const hotels = [
         country: 'Italy',
     },
     {
-        name: 'The Andaman Resort',
-        city: 'Port Dickson',
-        country: 'Malaysia',
-    },
-    {
         name: 'Black Penny Villas',
         city: 'BTDC, Nuca Dua',
         country: 'Indonesia',
@@ -673,6 +663,15 @@ const hotels = [
         city: 'Hamburg',
         country: 'Germany',
     },
-]
-    .map(item => item.country).reduce((prev, curr) => prev.concat(curr), []).filter((item, i, arr) => arr.indexOf(item) === i)
-console.log(hotels)
+];
+    const separatedBetweenCounties = {};
+
+    hotels.forEach(el => {
+        if (separatedBetweenCounties[el.country]) {
+            separatedBetweenCounties[el.country].push(el.city);
+        } else {
+            separatedBetweenCounties[el.country] = [el.city];
+        }
+    })
+
+    console.log(separatedBetweenCounties);
