@@ -268,6 +268,7 @@ document.getElementById("text3").addEventListener("click",
 //Home-task-5
 
 //№1 Преобразование формата даты
+/*
 
 function ChangeDate(date) {
     const dateReg = /^\d{4}([./-])\d{2}\1\d{2}$/;
@@ -339,4 +340,338 @@ function getSearchHotel(str, data) {
 
 console.log(getSearchHotel("ber", data));
 
+*/
 
+//lesson-6
+//№1
+const palindrome = CheckWordForPalindrome => CheckWordForPalindrome === CheckWordForPalindrome.split('').reverse().join('');
+console.log(palindrome('madam'));
+
+//№2
+const hotels2 = [
+    {
+        name: 'Hotel Leopold',
+        city: 'Saint Petersburg',
+        country: 'Russia',
+    },
+    {
+        name: 'Apartment Sunshine',
+        city: 'Santa Cruz de Tenerife',
+        country: 'Spain',
+    },
+    {
+        name: 'Villa Kunerad',
+        city: 'Vysokie Tatry',
+        country: 'Slowakia',
+    },
+    {
+        name: 'Hostel Friendship',
+        city: 'Berlin',
+        country: 'Germany',
+    },
+    {
+        name: 'Radisson Blu Hotel',
+        city: 'Kyiv',
+        country: 'Ukraine',
+    },
+    {
+        name: 'Paradise Hotel',
+        city: 'Guadalupe',
+        country: 'Mexico',
+    },
+    {
+        name: 'Hotel Grindewald',
+        city: 'Interlaken',
+        country: 'Switzerland',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+    },
+    {
+        name: 'Virgin Hotel',
+        city: 'Chicago',
+        country: 'USA',
+    },
+    {
+        name: 'Grand Beach Resort',
+        city: 'Dubai',
+        country: 'United Arab Emirates',
+    },
+    {
+        name: 'Shilla Stay',
+        city: 'Seoul',
+        country: 'South Korea',
+    },
+    {
+        name: 'San Firenze Suites',
+        city: 'Florence',
+        country: 'Italy',
+    },
+    {
+        name: 'Black Penny Villas',
+        city: 'BTDC, Nuca Dua',
+        country: 'Indonesia',
+    },
+    {
+        name: 'Koko Hotel',
+        city: 'Tokyo',
+        country: 'Japan',
+    },
+    {
+        name: 'Ramada Plaza',
+        city: 'Istanbul',
+        country: 'Turkey',
+    },
+    {
+        name: 'Waikiki Resort Hotel',
+        city: 'Hawaii',
+        country: 'USA',
+    },
+    {
+        name: 'Puro Hotel',
+        city: 'Krakow',
+        country: 'Poland',
+    },
+    {
+        name: 'Asma Suites',
+        city: 'Santorini',
+        country: 'Greece',
+    },
+    {
+        name: 'Cityden Apartments',
+        city: 'Amsterdam',
+        country: 'Netherlands',
+    },
+    {
+        name: 'Mandarin Oriental',
+        city: 'Miami',
+        country: 'USA',
+    },
+    {
+        name: 'Concept Terrace Hotel',
+        city: 'Rome',
+        country: 'Italy',
+    },
+    {
+        name: 'Ponta Mar Hotel',
+        city: 'Fortaleza',
+        country: 'Brazil',
+    },
+    {
+        name: 'Four Seasons Hotel',
+        city: 'Sydney',
+        country: 'Australia',
+    },
+    {
+        name: 'Le Meridien',
+        city: 'Nice',
+        country: 'France',
+    },
+    {
+        name: 'Apart Neptun',
+        city: 'Gdansk',
+        country: 'Poland',
+    },
+    {
+        name: 'Lux Isla',
+        city: 'Ibiza',
+        country: 'Spain',
+    },
+    {
+        name: 'Nox Hostel',
+        city: 'London',
+        country: 'UK',
+    },
+    {
+        name: 'Leonardo Vienna',
+        city: 'Vienna',
+        country: 'Austria',
+    },
+    {
+        name: 'Adagio Aparthotel',
+        city: 'Edinburgh',
+        country: 'UK',
+    },
+    {
+        name: 'Steigenberger Hotel',
+        city: 'Hamburg',
+        country: 'Germany',
+    },
+];
+const formatStr = (FindPlace) => Object.values(FindPlace).reverse().join(', ')
+
+const getSearchHotel = (str, hotels2) => {
+    const reg = new RegExp(str, 'i')
+    return hotels2
+        .filter((FindPlace) => reg.test(formatStr(FindPlace)))
+        .map(FindPlace => formatStr(FindPlace));
+}
+console.log(getSearchHotel('Vienna', hotels2));
+
+//№3
+
+const hotels = [
+    {
+        name: 'Hotel Leopold',
+        city: 'Saint Petersburg',
+        country: 'Russia',
+    },
+    {
+        name: 'Apartment Sunshine',
+        city: 'Santa Cruz de Tenerife',
+        country: 'Spain',
+    },
+    {
+        name: 'Villa Kunerad',
+        city: 'Vysokie Tatry',
+        country: 'Slowakia',
+    },
+    {
+        name: 'Hostel Friendship',
+        city: 'Berlin',
+        country: 'Germany',
+    },
+    {
+        name: 'Radisson Blu Hotel',
+        city: 'Kyiv',
+        country: 'Ukraine',
+    },
+    {
+        name: 'Paradise Hotel',
+        city: 'Guadalupe',
+        country: 'Mexico',
+    },
+    {
+        name: 'Hotel Grindewald',
+        city: 'Interlaken',
+        country: 'Switzerland',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+    },
+    {
+        name: 'Virgin Hotel',
+        city: 'Chicago',
+        country: 'USA',
+    },
+    {
+        name: 'Grand Beach Resort',
+        city: 'Dubai',
+        country: 'United Arab Emirates',
+    },
+    {
+        name: 'Shilla Stay',
+        city: 'Seoul',
+        country: 'South Korea',
+    },
+    {
+        name: 'San Firenze Suites',
+        city: 'Florence',
+        country: 'Italy',
+    },
+    {
+        name: 'Black Penny Villas',
+        city: 'BTDC, Nuca Dua',
+        country: 'Indonesia',
+    },
+    {
+        name: 'Koko Hotel',
+        city: 'Tokyo',
+        country: 'Japan',
+    },
+    {
+        name: 'Ramada Plaza',
+        city: 'Istanbul',
+        country: 'Turkey',
+    },
+    {
+        name: 'Waikiki Resort Hotel',
+        city: 'Hawaii',
+        country: 'USA',
+    },
+    {
+        name: 'Puro Hotel',
+        city: 'Krakow',
+        country: 'Poland',
+    },
+    {
+        name: 'Asma Suites',
+        city: 'Santorini',
+        country: 'Greece',
+    },
+    {
+        name: 'Cityden Apartments',
+        city: 'Amsterdam',
+        country: 'Netherlands',
+    },
+    {
+        name: 'Mandarin Oriental',
+        city: 'Miami',
+        country: 'USA',
+    },
+    {
+        name: 'Concept Terrace Hotel',
+        city: 'Rome',
+        country: 'Italy',
+    },
+    {
+        name: 'Ponta Mar Hotel',
+        city: 'Fortaleza',
+        country: 'Brazil',
+    },
+    {
+        name: 'Four Seasons Hotel',
+        city: 'Sydney',
+        country: 'Australia',
+    },
+    {
+        name: 'Le Meridien',
+        city: 'Nice',
+        country: 'France',
+    },
+    {
+        name: 'Apart Neptun',
+        city: 'Gdansk',
+        country: 'Poland',
+    },
+    {
+        name: 'Lux Isla',
+        city: 'Ibiza',
+        country: 'Spain',
+    },
+    {
+        name: 'Nox Hostel',
+        city: 'London',
+        country: 'UK',
+    },
+    {
+        name: 'Leonardo Vienna',
+        city: 'Vienna',
+        country: 'Austria',
+    },
+    {
+        name: 'Adagio Aparthotel',
+        city: 'Edinburgh',
+        country: 'UK',
+    },
+    {
+        name: 'Steigenberger Hotel',
+        city: 'Hamburg',
+        country: 'Germany',
+    },
+];
+    const separatedBetweenCounties = {};
+
+    hotels.forEach(el => {
+        if (separatedBetweenCounties[el.country]) {
+            separatedBetweenCounties[el.country].push(el.city);
+        } else {
+            separatedBetweenCounties[el.country] = [el.city];
+        }
+    })
+
+    console.log(separatedBetweenCounties);
