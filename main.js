@@ -341,8 +341,8 @@ function getSearchHotel(str, data) {
 console.log(getSearchHotel("ber", data));
 
 */
-
 /*//lesson-6
+
 //№1
 const palindrome = CheckWordForPalindrome => CheckWordForPalindrome === CheckWordForPalindrome.split('').reverse().join('');
 console.log(palindrome('madam'));
@@ -665,16 +665,15 @@ const hotels = [
     },
 ];
     const separatedBetweenCounties = {};
-
-    hotels.forEach(el => {
-        if (separatedBetweenCounties[el.country] && !separatedBetweenCounties[el.country].includes(el.city)) {
-            separatedBetweenCounties[el.country].push(el.city);
-        } else {
-            separatedBetweenCounties[el.country] = [el.city];
-        }
-    })
-
+hotels.forEach(el => {
+    if (separatedBetweenCounties[el.country] && !separatedBetweenCounties[el.country].includes(el.city)) {
+        separatedBetweenCounties[el.country].push(el.city);
+    } else {
+        separatedBetweenCounties[el.country] = [el.city];
+    }
+})
     console.log(separatedBetweenCounties);*/
+
 //lesson-7
 //№1
 const obj1 = {
@@ -797,3 +796,4 @@ const daysInWeek = 7;
 const dayOfWeek = 4; // в моем примере понедельник равен 0. У вас может отличаться
 const calendarMonth = getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek);
 console.log(calendarMonth);
+
