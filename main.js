@@ -857,9 +857,9 @@ class Students {
     getInfo(students) {
         const result = [];
         instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
-        for (let i = 0; i < instancesStudents.length; i++) {
-            result.push(`${instancesStudents[i].fullName} - ${instancesStudents[i].courseName}, ${instancesStudents[i].course}`);
-        }
+        instancesStudents.forEach(i => {
+            result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
+        })
         return result;
     }
 }
