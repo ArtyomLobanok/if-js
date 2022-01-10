@@ -674,7 +674,7 @@ hotels.forEach(el => {
 })
     console.log(separatedBetweenCounties);*/
 
-//lesson-7
+/*//lesson-7
 //№1
 const obj1 = {
     a: 'a',
@@ -795,5 +795,85 @@ const daysInMonth = 30;
 const daysInWeek = 7;
 const dayOfWeek = 4; // в моем примере понедельник равен 0. У вас может отличаться
 const calendarMonth = getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek);
-console.log(calendarMonth);
+console.log(calendarMonth);*/
 
+//lesson-8
+
+//ht-1
+currentYear = 2022;
+
+const studentsData = [
+    {
+        firstName: 'Василий',
+        lastName: 'Петров',
+        admissionYear: 2019,
+        courseName: 'Java',
+    },
+    {
+        firstName: 'Иван',
+        lastName: 'Иванов',
+        admissionYear: 2018,
+        courseName: 'JavaScript',
+    },
+    {
+        firstName: 'Александр',
+        lastName: 'Федоров',
+        admissionYear: 2017,
+        courseName: 'Python',
+    },
+    {
+        firstName: 'Николай',
+        lastName: 'Петров',
+        admissionYear: 2019,
+        courseName: 'Android',
+    }
+];
+
+class User {
+    constructor(infoUser) {
+        this.firstName = infoUser.firstName;
+        this.lastName = infoUser.lastName;
+    }
+    get fullName () {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+class Student extends User {
+    constructor(infoUser) {
+        super(infoUser)
+        this.admissionYear = infoUser.admissionYear;
+        this.courseName = infoUser.courseName;
+    }
+    get course(){
+        return `${currentYear - this.admissionYear} курс`
+    }
+}
+
+class Students {
+    constructor (infoStudent){
+        this.students = infoStudent.students;
+    }
+    getInfo(students) {
+        const result = [];
+        instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
+        for (let i = 0; i < instancesStudents.length; i++) {
+            result.push(`${instancesStudents[i].fullName} - ${instancesStudents[i].courseName}, ${instancesStudents[i].course}`);
+        }
+        return result;
+    }
+}
+
+const instancesStudents = studentsData.map(student => new Student(student));
+const students = new Students(instancesStudents);
+
+
+
+console.log(students.getInfo());
+
+//ht-2
+function ArrBiggest(arr, k){
+    arr.sort((a, b) => b-a);
+    return arr[k-1];
+}
+console.log(ArrBiggest([3,2,1,5,6,4],2));
