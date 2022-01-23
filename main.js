@@ -797,7 +797,7 @@ const dayOfWeek = 4; // в моем примере понедельник рав
 const calendarMonth = getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek);
 console.log(calendarMonth);*/
 
-//lesson-8
+/*//lesson-8
 
 //ht-1
 currentYear = 2022;
@@ -876,4 +876,38 @@ function ArrBiggest(arr, k){
     arr.sort((a, b) => b-a);
     return arr[k-1];
 }
-console.log(ArrBiggest([3,2,1,5,6,4],2));
+console.log(ArrBiggest([3,2,1,5,6,4],2));*/
+
+//lesson-9
+
+const colors = {
+    data: ["magenta", "cyan", "firebrick", "springgreen", "skyblue"],
+    [Symbol.iterator]() {
+        const colorArray = this.data;
+        return {
+            next(colorIndex) {
+                return {
+                    done: colorIndex === colorArray.length,
+                    value: colorArray[colorIndex],
+                };
+            }
+        };
+    }
+};
+
+changeStyle = () => {
+    let colorIndex = 0;
+    return function() {
+        let colorChanger = colors[Symbol.iterator]();
+        this.style.color = colorChanger.next(colorIndex).value;
+        colorIndex++;
+        if (colorChanger.next(colorIndex).done) {
+            colorIndex = 0;
+        }
+    };
+}
+
+document.getElementById("text1").addEventListener("click", changeStyle());
+document.getElementById("text2").addEventListener("click", changeStyle());
+document.getElementById("text3").addEventListener("click", changeStyle());
+
