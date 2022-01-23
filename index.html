@@ -1,13 +1,1056 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
-    <title>Js</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./js/slick/slick.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <title>TripHouse-site</title>
 </head>
 <body>
-<p id="text1">Text 1</p>
-<p id="text2">Text 2</p>
-<p id="text3">Text 3</p>
-<script src="main.js"></script>
+<div class="page">
+    <svg display="none">
+        <symbol id="logotype" viewBox="0 0 205 40">
+            <g>
+                <path d="M.84 11.024c-.206-.33-.397-.78-.574-1.35A6.033 6.033 0 0 1 0 7.874c0-1.17.25-2.01.752-2.52.532-.51 1.21-.765 2.036-.765h19.297c.207.33.398.78.575 1.35.177.57.266 1.17.266 1.8 0 1.17-.266 2.01-.797 2.52-.501.51-1.165.765-1.991.765h-4.913V31.81c-.325.09-.84.18-1.55.27-.678.09-1.356.135-2.035.135s-1.284-.06-1.815-.18c-.501-.09-.929-.27-1.283-.54-.354-.27-.62-.645-.797-1.125-.177-.48-.265-1.11-.265-1.89V11.024H.84ZM31.85 31.946c-.295.09-.768.18-1.417.27-.62.09-1.268.135-1.947.135-.65 0-1.24-.045-1.77-.135-.502-.09-.93-.27-1.284-.54a2.792 2.792 0 0 1-.84-1.08c-.178-.48-.266-1.095-.266-1.845V15.253c0-.69.118-1.275.354-1.755a4.35 4.35 0 0 1 1.106-1.35c.472-.39 1.048-.734 1.726-1.034a16.838 16.838 0 0 1 4.736-1.395c.856-.15 1.711-.225 2.567-.225 1.416 0 2.538.285 3.364.855.826.54 1.239 1.44 1.239 2.7 0 .42-.06.84-.177 1.26-.118.39-.266.75-.443 1.08a20.679 20.679 0 0 0-3.806.359c-.62.12-1.21.255-1.77.405a6.74 6.74 0 0 0-1.372.45v15.343ZM42.345 4.05c0-1.14.369-2.1 1.106-2.88.767-.78 1.77-1.17 3.01-1.17 1.24 0 2.228.39 2.965 1.17.767.78 1.151 1.74 1.151 2.88s-.384 2.1-1.15 2.88c-.738.779-1.727 1.169-2.966 1.169-1.24 0-2.242-.39-3.01-1.17-.737-.78-1.106-1.74-1.106-2.88Zm7.878 27.896c-.325.06-.812.135-1.46.225-.62.12-1.255.18-1.904.18s-1.239-.045-1.77-.135c-.502-.09-.93-.27-1.284-.54a2.79 2.79 0 0 1-.84-1.08c-.178-.48-.266-1.095-.266-1.845V10.44c.325-.06.797-.135 1.416-.225.65-.12 1.298-.18 1.948-.18.649 0 1.224.045 1.726.135.53.09.973.27 1.327.54.355.27.62.645.797 1.125.207.45.31 1.05.31 1.8v18.312ZM64.882 9.449c1.77 0 3.408.24 4.913.72 1.535.45 2.848 1.155 3.94 2.114 1.091.96 1.947 2.175 2.566 3.645.62 1.44.93 3.165.93 5.174 0 1.92-.266 3.6-.797 5.04s-1.283 2.654-2.257 3.644c-.974.96-2.154 1.68-3.54 2.16-1.358.48-2.878.72-4.56.72-1.268 0-2.448-.195-3.54-.585v7.47c-.295.089-.767.179-1.416.269-.65.12-1.314.18-1.992.18-.65 0-1.24-.045-1.77-.135-.502-.09-.93-.27-1.284-.54s-.62-.645-.797-1.125c-.177-.45-.265-1.05-.265-1.8V14.803c0-.81.162-1.47.487-1.98.354-.51.826-.975 1.416-1.394.915-.6 2.05-1.08 3.408-1.44 1.357-.36 2.877-.54 4.558-.54Zm.09 17.188c3.038 0 4.558-1.845 4.558-5.535 0-1.92-.384-3.344-1.151-4.274-.738-.93-1.815-1.395-3.23-1.395-.561 0-1.063.075-1.506.225a5.15 5.15 0 0 0-1.15.45v9.899c.354.18.737.33 1.15.45.413.12.856.18 1.328.18ZM105.466 31.811c-.325.09-.841.18-1.549.27-.679.09-1.357.135-2.036.135a8.28 8.28 0 0 1-1.815-.18 2.936 2.936 0 0 1-1.283-.54c-.354-.27-.62-.645-.797-1.125-.177-.48-.265-1.11-.265-1.89v-7.019h-8.498v10.349c-.325.09-.84.18-1.549.27-.679.09-1.357.135-2.036.135-.678 0-1.283-.06-1.815-.18-.501-.09-.929-.27-1.283-.54-.354-.27-.62-.645-.797-1.125-.177-.48-.265-1.11-.265-1.89V4.724c.324-.06.84-.135 1.549-.225.708-.12 1.387-.18 2.036-.18.678 0 1.269.06 1.77.18.531.09.974.27 1.328.54.354.27.62.645.796 1.125.178.48.266 1.11.266 1.89v7.2h8.498V4.723c.324-.06.84-.135 1.549-.225.708-.12 1.387-.18 2.036-.18.678 0 1.268.06 1.77.18.531.09.974.27 1.328.54.354.27.619.645.796 1.125.177.48.266 1.11.266 1.89v23.757ZM132.901 21.057c0 1.86-.28 3.525-.841 4.995-.561 1.44-1.357 2.654-2.39 3.644-1.003.99-2.213 1.74-3.629 2.25-1.417.51-2.995.765-4.736.765-1.741 0-3.319-.27-4.736-.81-1.416-.54-2.64-1.305-3.673-2.295-1.003-1.02-1.785-2.25-2.346-3.69-.56-1.44-.841-3.059-.841-4.859 0-1.77.281-3.374.841-4.814.561-1.44 1.343-2.655 2.346-3.645a10.468 10.468 0 0 1 3.673-2.34c1.417-.54 2.995-.81 4.736-.81 1.741 0 3.319.286 4.736.856 1.416.54 2.626 1.32 3.629 2.34 1.033.99 1.829 2.204 2.39 3.644.561 1.44.841 3.03.841 4.77Zm-15.491 0c0 1.83.34 3.24 1.018 4.23.708.96 1.682 1.44 2.921 1.44 1.24 0 2.184-.495 2.833-1.485.679-.99 1.018-2.385 1.018-4.185 0-1.8-.339-3.18-1.018-4.14-.679-.989-1.638-1.484-2.877-1.484-1.239 0-2.198.495-2.877 1.485-.678.96-1.018 2.34-1.018 4.14ZM136.572 10.439c.295-.09.752-.18 1.372-.27.649-.09 1.313-.135 1.991-.135.649 0 1.225.045 1.726.135.531.09.974.27 1.328.54.354.27.62.645.797 1.125.206.45.31 1.05.31 1.8v9.673c0 1.23.295 2.115.885 2.655.59.51 1.445.765 2.567.765.678 0 1.224-.06 1.637-.18.443-.12.782-.24 1.018-.36V10.439c.295-.09.753-.18 1.372-.27.649-.09 1.313-.135 1.992-.135.649 0 1.224.045 1.726.135.531.09.974.27 1.328.54.354.27.619.645.796 1.125.207.45.31 1.05.31 1.8v13.678c0 1.5-.619 2.624-1.859 3.374-1.032.66-2.272 1.155-3.717 1.485-1.417.36-2.966.54-4.648.54-1.593 0-3.068-.18-4.425-.54-1.328-.36-2.479-.915-3.453-1.665-.973-.75-1.726-1.71-2.257-2.88-.531-1.2-.796-2.64-.796-4.319V10.44ZM180.478 25.467c0 2.28-.841 4.064-2.523 5.354-1.682 1.29-4.161 1.935-7.436 1.935-1.239 0-2.39-.09-3.452-.27-1.062-.18-1.977-.45-2.744-.81-.737-.39-1.328-.87-1.77-1.44-.413-.57-.62-1.245-.62-2.024 0-.72.148-1.32.443-1.8.295-.51.649-.93 1.062-1.26.856.48 1.829.915 2.921 1.305 1.121.36 2.405.54 3.851.54.914 0 1.608-.135 2.08-.405.501-.27.752-.63.752-1.08 0-.42-.177-.75-.531-.99-.354-.24-.944-.435-1.77-.585l-1.328-.27c-2.567-.51-4.485-1.305-5.754-2.385-1.239-1.11-1.859-2.684-1.859-4.724 0-1.11.236-2.115.709-3.015a6.286 6.286 0 0 1 1.991-2.25c.856-.6 1.874-1.064 3.054-1.394 1.21-.33 2.538-.495 3.983-.495 1.092 0 2.11.09 3.054.27.974.15 1.815.39 2.523.72.708.33 1.269.765 1.682 1.304.413.51.619 1.125.619 1.845 0 .69-.132 1.29-.398 1.8-.236.48-.546.885-.929 1.215-.236-.15-.591-.3-1.063-.45-.472-.18-.988-.33-1.549-.45-.56-.15-1.136-.27-1.726-.36a9.82 9.82 0 0 0-1.549-.135c-.974 0-1.726.12-2.257.36-.531.21-.797.555-.797 1.035 0 .33.148.6.443.81.295.21.856.405 1.682.585l1.372.315c2.832.66 4.839 1.575 6.019 2.744 1.21 1.14 1.815 2.625 1.815 4.455ZM195.706 32.71c-1.741 0-3.364-.24-4.869-.719a11.498 11.498 0 0 1-3.895-2.25c-1.091-.99-1.962-2.234-2.611-3.734-.619-1.5-.929-3.255-.929-5.265 0-1.98.31-3.674.929-5.084.649-1.44 1.49-2.61 2.523-3.51a9.525 9.525 0 0 1 3.541-2.024 12.601 12.601 0 0 1 4.071-.675c1.564 0 2.981.24 4.249.72 1.299.48 2.405 1.14 3.32 1.98a8.426 8.426 0 0 1 2.168 3.014c.531 1.17.797 2.445.797 3.825 0 1.02-.28 1.8-.841 2.34-.561.54-1.342.884-2.346 1.034l-10.932 1.665c.325.99.989 1.74 1.992 2.25 1.003.48 2.154.72 3.452.72 1.21 0 2.346-.15 3.408-.45 1.092-.33 1.977-.705 2.656-1.125.472.3.87.72 1.195 1.26.324.54.487 1.11.487 1.71 0 1.35-.62 2.354-1.859 3.014-.944.51-2.007.855-3.187 1.035-1.18.18-2.287.27-3.319.27Zm-1.24-17.682c-.708 0-1.327.12-1.858.36-.502.24-.915.555-1.24.945-.324.36-.575.78-.752 1.26-.148.45-.236.915-.266 1.395l7.569-1.26c-.089-.6-.413-1.2-.974-1.8-.561-.6-1.387-.9-2.479-.9Z"/>
+            </g>
+        </symbol>
+        <symbol id="switcher__time" viewBox="0 0 30 30">
+            <g>
+                <path d="M25.6101 10.6101V4.38992H19.3899L15 0L10.6101 4.38992H4.38992V10.6101L0 15L4.38992 19.3899V25.6101H10.6101L15 30L19.3899 25.6101H25.6101V19.3899L30 15L25.6101 10.6101ZM15 22.9576C13.8196 22.9576 12.6923 22.6923 11.6844 22.2281C14.4164 20.9682 16.3263 18.2096 16.3263 15C16.3263 11.7905 14.4164 9.03183 11.6844 7.77188C12.6923 7.30769 13.8196 7.04244 15 7.04244C19.3899 7.04244 22.9576 10.6101 22.9576 15C22.9576 19.3899 19.3899 22.9576 15 22.9576Z"/>
+            </g>
+        </symbol>
+        <symbol id="account" viewBox="0 0 40 40">
+            <g>
+                <path d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM20 6C23.32 6 26 8.68 26 12C26 15.32 23.32 18 20 18C16.68 18 14 15.32 14 12C14 8.68 16.68 6 20 6ZM20 34.4C15 34.4 10.58 31.84 8 27.96C8.06 23.98 16 21.8 20 21.8C23.98 21.8 31.94 23.98 32 27.96C29.42 31.84 25 34.4 20 34.4Z"/>
+            </g>
+        </symbol>
+        <symbol id="support" viewBox="0 0 76 92">
+            <g>
+                <path d="M67.1667 54.3334V71H58.8333V54.3334H67.1667ZM17.1667 54.3334V71H13C10.7083 71 8.83333 69.125 8.83333 66.8334V54.3334H17.1667ZM38 0.166687C17.2917 0.166687 0.5 16.9584 0.5 37.6667V66.8334C0.5 73.75 6.08333 79.3334 13 79.3334H25.5V46H8.83333V37.6667C8.83333 21.5417 21.875 8.50002 38 8.50002C54.125 8.50002 67.1667 21.5417 67.1667 37.6667V46H50.5V79.3334H67.1667V83.5H38V91.8334H63C69.9167 91.8334 75.5 86.25 75.5 79.3334V37.6667C75.5 16.9584 58.7083 0.166687 38 0.166687Z"/>
+            </g>
+        </symbol>
+        <symbol id="Communicate" viewBox="0 0 84 84">
+            <g>
+                <path d="M54.5002 8.66665V37.8333H13.5418L8.66683 42.7083V8.66665H54.5002ZM58.6668 0.333313H4.50016C2.2085 0.333313 0.333496 2.20831 0.333496 4.49998V62.8333L17.0002 46.1666H58.6668C60.9585 46.1666 62.8335 44.2916 62.8335 42V4.49998C62.8335 2.20831 60.9585 0.333313 58.6668 0.333313ZM79.5002 17H71.1668V54.5H17.0002V62.8333C17.0002 65.125 18.8752 67 21.1668 67H67.0002L83.6668 83.6667V21.1666C83.6668 18.875 81.7918 17 79.5002 17Z"/>
+            </g>
+        </symbol>
+        <symbol id="Book" viewBox="0 0 100 68">
+            <g>
+                <path d="M16.6667 9.00002H91.6667V0.666687H16.6667C12.0833 0.666687 8.33333 4.41669 8.33333 9.00002V54.8333H0V67.3333H58.3333V54.8333H16.6667V9.00002ZM95.8333 17.3334H70.8333C68.5417 17.3334 66.6667 19.2084 66.6667 21.5V63.1667C66.6667 65.4583 68.5417 67.3333 70.8333 67.3333H95.8333C98.125 67.3333 100 65.4583 100 63.1667V21.5C100 19.2084 98.125 17.3334 95.8333 17.3334ZM91.6667 54.8333H75V25.6667H91.6667V54.8333Z"/>
+            </g>
+        </symbol>
+        <symbol id="Reviews" viewBox="0 0 92 84">
+            <g>
+                <path d="M83.4998 29.3334H57.2082L61.1665 10.2917L61.2915 8.95835C61.2915 7.25002 60.5832 5.66669 59.4582 4.54169L55.0415 0.166687L27.6248 27.625C26.0832 29.125 25.1665 31.2084 25.1665 33.5V75.1667C25.1665 79.75 28.9165 83.5 33.4998 83.5H70.9998C74.4582 83.5 77.4165 81.4167 78.6665 78.4167L91.2498 49.0417C91.6248 48.0834 91.8332 47.0834 91.8332 46V37.6667C91.8332 33.0834 88.0832 29.3334 83.4998 29.3334ZM83.4998 46L70.9998 75.1667H33.4998V33.5L51.5832 15.4167L46.9582 37.6667H83.4998V46ZM0.166504 33.5H16.8332V83.5H0.166504V33.5Z"/>
+            </g>
+        </symbol>
+        <symbol id="Group" viewBox="0 0 58 53">
+            <g>
+                <path d="M32.6518 34.7484C32.6518 32.6923 33.1633 30.7181 34.1248 28.9587C32.7643 28.1915 31.7619 27.6903 31.3425 27.4857C31.2095 27.4243 31.1379 27.2913 31.1379 27.1481V19.0671C32.1506 18.392 32.8257 17.2361 32.8257 15.9268V7.5491C32.8257 3.38584 29.4501 0 25.2766 0H24.3764H23.4763C19.313 0 15.9272 3.37561 15.9272 7.5491V15.9268C15.9272 17.2361 16.6023 18.392 17.615 19.0671V27.1481C17.615 27.2913 17.5331 27.4243 17.4104 27.4857C16.2545 28.0483 10.6592 30.8715 5.473 35.1371C4.53191 35.9043 4 37.0602 4 38.2774V44.016H24.3662H36.9787C36.7025 43.7909 36.4468 43.5454 36.1911 43.2897C33.91 41.0086 32.6518 37.9705 32.6518 34.7484Z"/>
+                <path d="M44.7324 25.4806C39.6179 25.4806 35.4648 29.6336 35.4648 34.7482C35.4648 39.8628 39.6179 44.0158 44.7324 44.0158C49.847 44.0158 54 39.8628 54 34.7482C54 29.6336 49.8572 25.4806 44.7324 25.4806ZM50.1539 36.0984H46.0827V40.1696H43.3822V36.0984H39.311V33.3979H43.3822V29.3267H46.0827V33.3979H50.1539V36.0984Z"/>
+            </g>
+        </symbol>
+        <symbol id="close" viewBox="0 0 26 26">
+            <g>
+                <path d="M26 1.4857L24.5144 0L13 11.5143L1.4857 0L0 1.4857L11.5143 13L0 24.5144L1.4857 26L13 14.4857L24.5144 26L26 24.5144L14.4857 13L26 1.4857Z"/>
+            </g>
+        </symbol>
+        <symbol id="ukraine" viewBox="0 0 640 480">
+            <g>
+                <path fill="#ffd500" d="M0 0h640v480H0z"/>
+                <path fill="#005bbb" d="M0 0h640v240H0z"/>
+            </g>
+        </symbol>
+        <symbol id="USA" viewBox="0 0 640 480">
+            <path d="M0 0h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0z"
+                  fill="#bd3d44"/>
+            <path d="M0 39.385h972.81V78.77H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0zm0 78.77h972.81v39.385H0z"
+                  fill="#fff"/>
+            <path fill="#192f5d" d="M0 0h389.12v275.69H0z"/>
+            <path d="M32.427 11.8l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.853 0l3.541 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735H93.74zm64.856 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.269 6.734 3.54-10.896-9.269-6.735h11.458zm64.852 0l3.54 10.896h11.457l-9.269 6.735 3.54 10.896-9.268-6.734-9.27 6.734 3.541-10.896-9.27-6.735h11.458zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.27 6.734 3.542-10.896-9.27-6.735h11.458zM64.855 39.37l3.54 10.896h11.458L70.583 57l3.542 10.897-9.27-6.734-9.269 6.734L59.126 57l-9.269-6.734h11.458zm64.852 0l3.54 10.896h11.457L135.435 57l3.54 10.897-9.268-6.734-9.27 6.734L123.978 57l-9.27-6.734h11.458zm64.855 0l3.54 10.896h11.458L200.29 57l3.541 10.897-9.27-6.734-9.268 6.734L188.833 57l-9.269-6.734h11.457zm64.855 0l3.54 10.896h11.458L265.145 57l3.541 10.897-9.269-6.734-9.27 6.734L253.69 57l-9.27-6.734h11.458zm64.852 0l3.54 10.896h11.457L329.997 57l3.54 10.897-9.268-6.734-9.27 6.734L318.54 57l-9.27-6.734h11.458zM32.427 66.939l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.853 0l3.541 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735H93.74zm64.856 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.269 6.734 3.54-10.896-9.269-6.735h11.458zm64.852 0l3.54 10.896h11.457l-9.269 6.735 3.54 10.896-9.268-6.734-9.27 6.734 3.541-10.896-9.27-6.735h11.458zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.27 6.734 3.542-10.896-9.27-6.735h11.458zM64.855 94.508l3.54 10.897h11.458l-9.27 6.734 3.542 10.897-9.27-6.734-9.269 6.734 3.54-10.897-9.269-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.27-6.734-9.268 6.734 3.54-10.897-9.269-6.734h11.457zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.269-6.734-9.27 6.734 3.542-10.897-9.27-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458zM32.427 122.078l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.853 0l3.541 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735H93.74zm64.856 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.269 6.734 3.54-10.896-9.269-6.735h11.458zm64.852 0l3.54 10.896h11.457l-9.269 6.735 3.54 10.896-9.268-6.734-9.27 6.734 3.541-10.896-9.27-6.735h11.458zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.27 6.734 3.542-10.896-9.27-6.735h11.458zM64.855 149.647l3.54 10.897h11.458l-9.27 6.734 3.542 10.897-9.27-6.734-9.269 6.734 3.54-10.897-9.269-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.27-6.734-9.268 6.734 3.54-10.897-9.269-6.734h11.457zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.269-6.734-9.27 6.734 3.542-10.897-9.27-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458z"/>
+            <path d="M32.427 177.217l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.853 0l3.541 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735H93.74zm64.856 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.269 6.734 3.54-10.896-9.269-6.735h11.458zm64.852 0l3.54 10.896h11.457l-9.269 6.735 3.54 10.896-9.268-6.734-9.27 6.734 3.541-10.896-9.27-6.735h11.458zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.27 6.734 3.542-10.896-9.27-6.735h11.458zM64.855 204.786l3.54 10.897h11.458l-9.27 6.734 3.542 10.897-9.27-6.734-9.269 6.734 3.54-10.897-9.269-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.27-6.734-9.268 6.734 3.54-10.897-9.269-6.734h11.457zm64.855 0l3.54 10.897h11.458l-9.27 6.734 3.541 10.897-9.269-6.734-9.27 6.734 3.542-10.897-9.27-6.734h11.458zm64.852 0l3.54 10.897h11.457l-9.269 6.734 3.54 10.897-9.268-6.734-9.27 6.734 3.541-10.897-9.27-6.734h11.458z"/>
+            <path d="M32.427 232.356l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.853 0l3.541 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735H93.74zm64.856 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.269 6.734 3.54-10.896-9.269-6.735h11.458zm64.852 0l3.54 10.896h11.457l-9.269 6.735 3.54 10.896-9.268-6.734-9.27 6.734 3.541-10.896-9.27-6.735h11.458zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.27-6.734-9.268 6.734 3.54-10.896-9.269-6.735h11.457zm64.855 0l3.54 10.896h11.458l-9.27 6.735 3.541 10.896-9.269-6.734-9.27 6.734 3.542-10.896-9.27-6.735h11.458z"/>
+        </symbol>
+        <symbol id="germany" viewBox="0 0 640 480">
+            <g>
+                <path fill="#ffce00" d="M0 320h640v160.002H0z"/>
+                <path d="M0 0h640v160H0z"/>
+                <path fill="#d00" d="M0 160h640v160H0z"/>
+            </g>
+        </symbol>
+        <symbol id="arrow" viewBox="0 0 9 21">
+            <g>
+                <path d="M0.941176 19.8235L7.1 11.6118C7.63333 10.9007 7.63333 9.92289 7.1 9.21178L0.941176 1.00002"
+                      fill="none" stroke="#383838" stroke-width="2"/>
+            </g>
+        </symbol>
+        <symbol id="search" viewBox="0 0 16 16">
+            <g>
+                <path d="M11.4351 10.0629H10.7124L10.4563 9.81589C11.3528 8.77301 11.8925 7.4191 11.8925 5.94625C11.8925 2.66209 9.23042 0 5.94625 0C2.66209 0 0 2.66209 0 5.94625C0 9.23042 2.66209 11.8925 5.94625 11.8925C7.4191 11.8925 8.77301 11.3528 9.81589 10.4563L10.0629 10.7124V11.4351L14.6369 16L16 14.6369L11.4351 10.0629ZM5.94625 10.0629C3.66838 10.0629 1.82962 8.22413 1.82962 5.94625C1.82962 3.66838 3.66838 1.82962 5.94625 1.82962C8.22413 1.82962 10.0629 3.66838 10.0629 5.94625C10.0629 8.22413 8.22413 10.0629 5.94625 10.0629Z"/>
+            </g>
+        </symbol>
+    </svg>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <svg class="header__logo">
+                    <use href="#logotype"></use>
+                </svg>
+                <nav class="navigation">
+                    <div class="nav__links">
+                        <a href="#">Stays</a>
+                        <a href="#">Attractions</a>
+                    </div>
+                    <div class="nav__icons">
+                        <a href="#">
+                            <svg class="header__switcher">
+                                <use href="#switcher__time"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="header__account">
+                                <use href="#account"></use>
+                            </svg>
+                        </a>
+                        <div class="nav__toggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="intro">
+        <div class="shadow__box">
+            <div class="container">
+                <div class="intro__content">
+                    <h1 class="intro__title">Discover stays <br> to live, work or just relax</h1>
+                    <div class="intro__wrapper">
+                        <form class="intro__form">
+                            <div class="first__input">
+                                <a href="#" class="form__icon">
+                                    <svg class="icon__search">
+                                        <use href="#search"></use>
+                                    </svg>
+                                </a>
+                                <div class="form__item">
+                                    <input type="text" name="name" id="name" class="form__input" required>
+                                    <label class="form__label" for="name">Your destination or hotel name</label>
+                                </div>
+                            </div>
+                            <div class="second__input">
+                                <div class="form__item">
+                                    <input type="text" name="in_date" id="in_date" class="form__input" required>
+                                    <label class="form__label" for="in_date">Check-in date</label>
+                                </div>
+                                <div class="form__item">
+                                    <input type="text" name="out_date" id="out_date" class="form__input"
+                                           required>
+                                    <label class="form__label" for="out_date">Check-out date</label>
+                                </div>
+                            </div>
+                            <div class="third__input">
+                                <div class="form__item">
+                                    <input type="text" name="Adults" id="Adults" class="form__input" required>
+                                    <label class="form__label" for="Adults">Adults</label>
+                                </div>
+                                <hr class="form__devider">
+                                <div class="form__item">
+                                    <input type="text" name="Children" id="Children" class="form__input"
+                                           required>
+                                    <label class="form__label " for="Children">Children</label>
+                                </div>
+                                <hr class="form__devider">
+                                <div class="form__item">
+                                    <input type="text" name="Rooms" id="Rooms" class="form__input" required>
+                                    <label class="form__label" for="Rooms">Rooms</label>
+                                </div>
+                            </div>
+                            <a class="form__btn" href="#">
+                                <button class="form__button">Search</button>
+                            </a>
+                        </form>
+                    </div>
+                    <div class="intro__icons">
+                        <a href="https://play.google.com/store" target="_blank">
+                            <img src="images/header/google-play-badge.png" alt="Img google pay store">
+                        </a>
+                        <a href="https://www.apple.com/ru/app-store/" target="_blank">
+                            <img src="images/header/apstore.png" alt="Img apple store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">What do we offer</h2>
+            </div>
+            <div class="offer">
+                <div class="offer__item">
+                    <div class="offer__img">
+                        <svg>
+                            <use href="#support"></use>
+                        </svg>
+                    </div>
+                    <div class="offer__info">
+                        <span>Support 24/7</span>
+                    </div>
+                </div>
+                <div class="offer__item">
+                    <div class="offer__img">
+                        <svg>
+                            <use href="#Communicate"></use>
+                        </svg>
+                    </div>
+                    <div class="offer__info">
+                        <span>Communicate directly</span>
+                    </div>
+                </div>
+                <div class="offer__item">
+                    <div class="offer__img">
+                        <svg>
+                            <use href="#Book"></use>
+                        </svg>
+                    </div>
+                    <div class="offer__info">
+                        <span>Book online</span>
+                    </div>
+                </div>
+                <div class="offer__item">
+                    <div class="offer__img">
+                        <svg>
+                            <use href="#Reviews"></use>
+                        </svg>
+                    </div>
+                    <div class="offer__info">
+                        <span>Real guest reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section__overviews">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Homes guests loves</h2>
+            </div>
+            <div class="overviews">
+                <div class="overviews__slider">
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Leopold.png" alt="Picture Hotel Leopold">
+                            </div>
+                            <div class="overviews__tittle">Hotel Leopold</div>
+                            <div class="overviews__location">Saint Petersburg, Russia</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Sunshine.png" alt="Picture Apartment Sunshine">
+                            </div>
+                            <div class="overviews__tittle">Apartment Sunshine</div>
+                            <div class="overviews__location">Santa Cruz de Tenerife, Spain</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Kunerad.png" alt="Picture VillaKunerad">
+                            </div>
+                            <div class="overviews__tittle">Villa Kunerad</div>
+                            <div class="overviews__location">Vysokie Tatry, Slowakia</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Friendship.png" alt="Picture Hostel Friendship">
+                            </div>
+                            <div class="overviews__tittle">Hostel Friendship</div>
+                            <div class="overviews__location">Berlin, Germany</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Leopold.png" alt="Picture Hotel Leopold">
+                            </div>
+                            <div class="overviews__tittle">Hotel Leopold</div>
+                            <div class="overviews__location">Saint Petersburg, Russia</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Sunshine.png" alt="Picture Apartment Sunshine">
+                            </div>
+                            <div class="overviews__tittle">Apartment Sunshine</div>
+                            <div class="overviews__location">Santa Cruz de Tenerife, Spain</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Kunerad.png" alt="Picture VillaKunerad">
+                            </div>
+                            <div class="overviews__tittle">Villa Kunerad</div>
+                            <div class="overviews__location">Vysokie Tatry, Slowakia</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="overviews__item">
+                            <div class="overviews__img">
+                                <img src="./images/loves/Friendship.png" alt="Picture Hostel Friendship">
+                            </div>
+                            <div class="overviews__tittle">Hostel Friendship</div>
+                            <div class="overviews__location">Berlin, Germany</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section__destinations">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">The best destinations</h2>
+            </div>
+            <div class="destinations__tabs">
+                <a class="tabs__category tabs-triggers__item" href="#tab-1">Regions</a>
+                <a class="tabs__category tabs-triggers__item" href="#tab-2">Cities</a>
+                <a class="tabs__category tabs-triggers__item" href="#tab-3">Places</a>
+            </div>
+            <div class="destinations tabs-content__item" id="tab-1">
+                <div class="destinations__slider">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Maldives.png" alt="Picture Maldives">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Maldives</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Spain.png" alt="Picture Spain">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Spain</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Norway.png" alt="Picture Norway">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Norway</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Island.png" alt="Picture Island">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Island</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Japan.png" alt="Picture Japan old castle">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Japan</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/France.png" alt="Picture field of flowers in France">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">France</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Scottland.png" alt="Picture Scottland field">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Scottland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Russia.png" alt="Picture the Russian river and mountains">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Russia</a>
+                    </div>
+                </div>
+                <button class="arrow destinations__collapse">
+                    <svg class="destinations__arrow">
+                        <use href="#arrow"></use>
+                    </svg>
+                </button>
+                <div class="destinations__wrapper__second">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Japan.png" alt="Picture Japan old castle">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Japan</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/France.png" alt="Picture field of flowers in France">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">France</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Scottland.png" alt="Picture Scottland field">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Scottland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/Russia.png" alt="Picture the Russian river and mountains">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Russia</a>
+                    </div>
+                </div>
+            </div>
+            <div class="destinations tabs-content__item" id="tab-2">
+                <div class="destinations__slider">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Berlin,Germany.png" alt="Picture Berlin,Germany">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Berlin, Germany</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Paris,%20France.png" alt="Picture Paris, France">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Paris, France</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Budapest,%20Hungary.png"
+                                     alt="Picture Budapest, Hungary">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Budapest, Hungary</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/London,%20United%20Kingdom.png"
+                                     alt="Picture London, United Kingdom">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">London, United Kingdom</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png" alt="Picture Barcelona, Spain">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Barcelona, Spain</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png" alt="Picture Tbilisi, Georgina">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Tbilisi, Georgia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Moscow,Russia.png" alt="Picture Kreml Russia">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Moscow, Russia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Amsterdam,%20Netherlands.png"
+                                     alt="Picture a river and houses in Amsterdam">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Amsterdam, Netherlands</a>
+                    </div>
+                </div>
+                <button class="arrow destinations__collapse">
+                    <svg class="destinations__arrow">
+                        <use href="#arrow"></use>
+                    </svg>
+                </button>
+                <div class="destinations__wrapper__second">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png" alt="Picture Barcelona, Spain">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Barcelona, Spain</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png" alt="Picture Tbilisi, Georgina">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Tbilisi, Georgia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Moscow,Russia.png" alt="Picture Kreml Russia">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Moscow, Russia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab2/Amsterdam,%20Netherlands.png"
+                                     alt="Picture a river and houses in Amsterdam">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Amsterdam, Netherlands</a>
+                    </div>
+                </div>
+            </div>
+            <div class="destinations tabs-content__item" id="tab-3">
+                <div class="destinations__slider">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/EdinburghCastle.png"
+                                     alt="Picture Edinburgh Castle, Edinburgh, United Kingdom">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Edinburgh Castle, Edinburgh, United Kingdom</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Neuschwanstein.png"
+                                     alt="Picture Neuschwanstein, Fussen, Germany">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Neuschwanstein, Fussen, Germany</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/BigBen.png"
+                                     alt="Picture Big Ben, London, United Kingdom">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Big Ben, London, United Kingdom</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Colosseum.png" alt="Picture Colosseum, Roma, Italy">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Colosseum, Roma, Italy</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Matterhorn.png"
+                                     alt="Picture Matterhorn, Zermatt, Switzerland">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Matterhorn, Zermatt, Switzerland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Morskie.png" alt="Picture Morskie Oko, Poland">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Morskie Oko, Poland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Krka.png" alt="Picture Krka, Croatia">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Krka, Croatia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Cabo.png" alt="Picture Cabo da roca, Sintra, Portugal">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Cabo da roca, Sintra, Portugal</a>
+                    </div>
+                </div>
+                <button class="arrow destinations__collapse">
+                    <svg class="destinations__arrow">
+                        <use href="#arrow"></use>
+                    </svg>
+                </button>
+                <div class="destinations__wrapper__second">
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Matterhorn.png" alt="Picture Barcelona, Spain">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Matterhorn, Zermatt, <br>Switzerland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Morskie.png" alt="Picture Morskie Oko, Poland">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Morskie Oko, Poland</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Krka.png" alt="Picture Krka, Croatia">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Krka, Croatia</a>
+                    </div>
+                    <div class="destinations__item">
+                        <div class="destinations__content">
+                            <div class="destinations__img">
+                                <img src="./images/destinations/tab3/Cabo.png" alt="Picture Cabo da roca, Sintra, Portugal">
+                            </div>
+                            <div class="destinations__button">
+                                <a href="#" target="_blank">Book now</a>
+                            </div>
+                        </div>
+                        <a href="#" target="blank">Cabo da roca, Sintra, <br> Portugal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="redirection">
+        <section class="section section__promotion">
+            <div class="container">
+                <div class="promotion">
+                    <div class="promotion__content">
+                        <div class="promotion__avatar">
+                            <svg>
+                                <use href="#Group"></use>
+                            </svg>
+                        </div>
+                        <div class="promotion__logotype">
+                            <svg>
+                                <use href="#logotype"></use>
+                            </svg>
+                        </div>
+                        <div class="promotion__main">
+                            <div class="promotion__text">
+                                <span>Sign up and get 20% off your first booking</span>
+                                <span>Sign up in the app and get 20% off your first booking</span>
+                            </div>
+                            <div class="promotion__btn">
+                                <a href="#">Sign up</a>
+                            </div>
+                        </div>
+                        <div class="promotion__footer">
+                            <a href="#">Install</a>
+                        </div>
+                    </div>
+                    <div class="promotion__close">
+                        <svg>
+                            <use href="#close"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__reviews">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Guests reviews</h2>
+                </div>
+                <div class="reviews">
+                    <div class="reviews__block">
+
+                        <div class="reviews__item">
+                            <div class="reviews__header">
+                                <div class="reviews__img">
+                                    <img src="images/reviews/Resort&SPA.png"
+                                         alt="Picture Ubud Bali Resort&SPA">
+                                </div>
+                                <div class="reviews__price">
+                                    From 250 USD
+                                </div>
+                            </div>
+                            <div class="reviews__content">
+                                <div class="reviews__name">
+                                    <div class="reviews__tittle">Ubud Bali Resort&SPA</div>
+                                    <div class="reviews__location">Bali, Indonesia</div>
+                                </div>
+
+                                <div class="reviews__counter">
+                                    <div class="reviews__rating">
+                                        <a href="#">9,4</a>
+                                    </div>
+                                    <div class="reviews__views">1324 reviews</div>
+                                </div>
+                            </div>
+                            <div class="review__wrapper">
+                                <div class="review__info">
+                                    <div class="review__avatar">
+                                        <svg class="review__account">
+                                            <use href="#account"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="review__block">
+                                        <div class="review__name">Hanna Ivanova</div>
+                                        <div class="review__country">
+                                            <svg>
+                                                <use href="#ukraine"></use>
+                                            </svg>
+                                            <span>Ukraine</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__text">Great location, really pleasant and clean rooms, but the
+                                    thing
+                                    that makes this such a good place to stay are the staff. All of the people are
+                                    incredibly helpful and generous with their time and advice.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews__item">
+                            <div class="reviews__header">
+                                <div class="reviews__img">
+                                    <img src="images/reviews/KingKong.png"
+                                         alt="Picture Ubud Bali Resort&SPA">
+                                </div>
+                                <div class="reviews__price">
+                                    From 40 USD
+                                </div>
+                            </div>
+                            <div class="reviews__content">
+                                <div class="reviews__name">
+                                    <div class="reviews__tittle">King Kong Hostel</div>
+                                    <div class="reviews__location">Rotterdam, Netherlands</div>
+                                </div>
+
+                                <div class="reviews__counter">
+                                    <div class="reviews__rating">
+                                        <a href="#">8,9</a>
+                                    </div>
+                                    <div class="reviews__views">2016 reviews</div>
+                                </div>
+                            </div>
+                            <div class="review__wrapper">
+                                <div class="review__info">
+                                    <div class="review__avatar">
+                                        <svg class="review__account">
+                                            <use href="#account"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="review__block">
+                                        <div class="review__name">Adam Smith</div>
+                                        <div class="review__country">
+                                            <svg>
+                                                <use href="#USA"></use>
+                                            </svg>
+                                            <span>USA</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__text">I've been in this hostel for a month and here is the best
+                                    hostel
+                                    of all <br>
+                                    Excellent management of excellent and ethical staff and bedrooms Bathrooms are
+                                    always
+                                    clean and excellent <br>
+                                    Most importantly, those who work here are kind and good-natured.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews__item">
+                            <div class="reviews__header">
+                                <div class="reviews__img">
+                                    <img src="images/reviews/Rokoko.png"
+                                         alt="Picture Ubud Bali Resort&SPA">
+                                </div>
+                                <div class="reviews__price">
+                                    From 100 USD
+                                </div>
+                            </div>
+                            <div class="reviews__content">
+                                <div class="reviews__name">
+                                    <div class="reviews__tittle">Rokoko Hotel</div>
+                                    <div class="reviews__location">Ourika, Marocco</div>
+                                </div>
+
+                                <div class="reviews__counter">
+                                    <div class="reviews__rating">
+                                        <a href="#">9,1</a>
+                                    </div>
+                                    <div class="reviews__views">1324 reviews</div>
+                                </div>
+                            </div>
+                            <div class="review__wrapper">
+                                <div class="review__info">
+                                    <div class="review__avatar">
+                                        <svg class="review__account">
+                                            <use href="#account"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="review__block">
+                                        <div class="review__name">Anika Messer</div>
+                                        <div class="review__country">
+                                            <svg>
+                                                <use href="#germany"></use>
+                                            </svg>
+                                            <span>Germany</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__text">Efficient, friendly, professional, and appropriately
+                                    attentive.
+                                    Great hotel in a great location. Easy access to all the surrounding historical
+                                    sites.
+                                    Staff is fantastic. Will definitely stay at this location during my next stay in
+                                    Marocco.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews__item">
+                            <div class="reviews__header">
+                                <div class="reviews__img">
+                                    <img src="images/reviews/intercontinental-tegucigalpa.png"
+                                         alt="Picture Ubud Bali Resort&SPA">
+                                </div>
+                                <div class="reviews__price">
+                                    From 450 USD
+                                </div>
+                            </div>
+                            <div class="reviews__content">
+                                <div class="reviews__name">
+                                    <div class="reviews__tittle">Intercontinental Hotel</div>
+                                    <div class="reviews__location">Tegucigalpa, Honduras</div>
+                                </div>
+
+                                <div class="reviews__counter">
+                                    <div class="reviews__rating">
+                                        <a href="#">9,9</a>
+                                    </div>
+                                    <div class="reviews__views">2586 reviews</div>
+                                </div>
+                            </div>
+                            <div class="review__wrapper">
+                                <div class="review__info">
+                                    <div class="review__avatar">
+                                        <svg class="review__account">
+                                            <use href="#account"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="review__block">
+                                        <div class="review__name">Dietrich Werner</div>
+                                        <div class="review__country">
+                                            <svg>
+                                                <use href="#germany"></use>
+                                            </svg>
+                                            <span>Germany</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__text">In the summertime, there’s only one-must have hotel amenity: a
+                                    rooftop pool. There’s nothing better. Great hotel in a great location. Excellent
+                                    management of excellent and ethical staff and bedrooms Bathrooms are
+                                    always clean and excellent.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__logo">
+                <svg>
+                    <use href="#logotype"></use>
+                </svg>
+            </div>
+            <div class="footer__inner">
+                <ul>
+                    <li><a href="#" target="_blank">About</a></li>
+                    <li><a href="#" target="_blank">How Triphouse works</a></li>
+                    <li><a href="#" target="_blank">Careers</a></li>
+                    <li><a href="#" target="_blank">Privacy</a></li>
+                    <li><a href="#" target="_blank">Terms</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#" target="_blank">Property types</a></li>
+                    <li><a href="#" target="_blank">Guest houses</a></li>
+                    <li><a href="#" target="_blank">Hotels</a></li>
+                    <li><a href="#" target="_blank">Apartments</a></li>
+                    <li><a href="#" target="_blank">Villas</a></li>
+                    <li><a href="#" target="_blank">Holiday homes</a></li>
+                    <li><a href="#" target="_blank">Hostels</a></li>
+                </ul>
+                <ul>
+                    <li><a class="footer__first" href="#" target="_blank">Support</a></li>
+                    <li><a href="#" target="_blank">Contact Customer Service</a></li>
+                    <li><a href="#" target="_blank">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer__copyright">
+                <span>© 2020 Triphouse, Inc. All rights reserved</span>
+            </div>
+        </div>
+    </footer>
+</div>
+<link rel="stylesheet" href="./js/slick/slick.min.js">
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/slick/slick.min.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>
