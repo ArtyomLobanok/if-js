@@ -912,9 +912,7 @@ document.getElementById("text2").addEventListener("click", changeStyle());
 document.getElementById("text3").addEventListener("click", changeStyle());*/
 
 //lesson-10
-
-let Usrdata = document.querySelector('.overviews__item');
-
+let itemsOut = document.querySelector('.overviews__items');
 const data = [
     {
         name: 'Hotel Leopold',
@@ -965,3 +963,10 @@ const data = [
         imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
     },
 ];
+
+document.getElementById('overviewsItem').innerHTML = data.map(i =>
+    `<div class="overviews__item">
+    <img class="overviews__img" src="${i.imageUrl}" alt="Pictures">
+    <div class="overviews__tittle">${i.name}</div>
+    <div class="overviews__location">${i.city}, ${i.country}</div>
+    </div>`).join('');
