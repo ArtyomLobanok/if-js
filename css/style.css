@@ -569,7 +569,6 @@ body {
 }
 
 .overviews__slider .slick-slider {
-  display: flex;
   margin: 0;
   padding: 0;
 }
@@ -579,12 +578,7 @@ body {
 }
 
 .overviews__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   margin-right: 1rem;
 }

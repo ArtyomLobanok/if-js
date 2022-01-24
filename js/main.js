@@ -1,7 +1,7 @@
 /*Carousel overviews responsive*/
 $(function () {
 
-    $('.overviews__slider').slick({
+    $('.overviews__items').slick({
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
