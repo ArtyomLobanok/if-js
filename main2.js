@@ -878,7 +878,7 @@ function ArrBiggest(arr, k){
 }
 console.log(ArrBiggest([3,2,1,5,6,4],2));*/
 
-//lesson-9
+/*//lesson-9
 
 const colors = {
     data: ["magenta", "cyan", "firebrick", "springgreen", "skyblue"],
@@ -909,5 +909,5 @@ changeStyle = () => {
 
 document.getElementById("text1").addEventListener("click", changeStyle());
 document.getElementById("text2").addEventListener("click", changeStyle());
-document.getElementById("text3").addEventListener("click", changeStyle());
+document.getElementById("text3").addEventListener("click", changeStyle());*/
 
