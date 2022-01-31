@@ -590,8 +590,8 @@ body {
 
 .overviews__img img {
   display: block;
-  height: var(--image-height);
-  width: var(--image-width);
+  height: 296px;
+  width: 296px;
 }
 
 .overviews__tittle {

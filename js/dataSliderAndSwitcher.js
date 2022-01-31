@@ -54,7 +54,7 @@ $(function () {
 
  );
 
-//Если нажали на Tabs
+
  $('.tabs-triggers__item').on('click', function () {
      $('.destinations__slider').slick('unslick');
      $('.destinations__slider').slick({
