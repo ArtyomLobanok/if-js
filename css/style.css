@@ -378,24 +378,22 @@ body {
 .intro__form .third__input {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  width: 30%;
-  border-radius: 0.5rem;
-  background-color: #FFF;
-}
-.intro__form .third__input .form__devider {
-  display: none;
-}
-.intro__form .third__input .form__item {
-  width: 100%;
   position: relative;
+  width: 32%;
+  border-radius: 0.5rem;
+  border: 1px solid #CECECE;
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
 }
-.intro__form .third__input .form__item .form__input {
-  padding: 1.3125rem 0.5rem 1.25rem 1rem;
+
+.intro__form .third__input .form__item {
+  padding: 20px 0;
 }
-.intro__form .third__input .form__item .form__label {
-  left: 1rem;
-}
+
 .intro__form .form__input:focus ~ .form__label,
 .intro__form .form__input:not(:focus):valid ~ .form__label {
   top: -3.25rem;
@@ -911,6 +909,7 @@ body {
   max-height: 1.625rem;
   fill: #BFBFBF;
   margin: 1.5rem 1.5rem 0 0;
+  cursor: pointer;
 }
 
 .reviews__block {
@@ -1391,17 +1390,15 @@ body {
     color: #383838;
     font-weight: 500;
   }
-  .intro__form .form__btn {
-    width: 100%;
-    background-color: #3077C6;
-    border-radius: 0.5rem;
-  }
+
   .intro__form .form__btn .form__button {
     position: unset;
     width: 100%;
-    padding: 0.75rem 7.75rem;
-    font-size: 1.1875rem;
+    padding: 17px 58px;
+    font-size: 24px;
     font-weight: 500;
+    background-color: #3077C6;
+    border-radius: 0.5rem;
   }
 
   .section {

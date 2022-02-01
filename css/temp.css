@@ -1,0 +1,131 @@
+.formInputs:hover, .formInputs:active {
+    border: 3px solid #F5BD41;
+    outline: none;
+}
+
+
+
+.third__inputHyphen {
+    padding-right: 5px;
+}
+
+.activateSecondMenu {
+    position: absolute;
+    right: 0;
+    top: 86px;
+    max-width: 260px;
+    max-height: 260px;
+    border-radius: 8px;
+    overflow-y: scroll;
+    background-color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+/* display:none scroll line owerflowY */
+
+.counterContainer {
+    display: flex;
+    background-color: #FFF;
+}
+
+.namesNumberChanger {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 28px 28px 20px;
+}
+
+.namesNumberChanger label {
+    margin-bottom: 23px;
+}
+
+.namesNumberChanger label:last-child {
+    margin-bottom: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    text-align: center;
+    background: #FFF;
+    border: none;
+    max-height: 20px;
+    max-width: 25px
+}/* display:none border, background, and such size input (+/-)*/
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}/* display:none arrow (+/-)*/
+
+.counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.numberChanger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.counters {
+    margin-top: 28px;
+}
+
+.btnCounterMin, .btnCounterPlus {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: #FFF;
+    border: 1px solid #CECECE;
+    color: #CECECE;
+    font-size: 18px;
+}
+
+.btnActive {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+}
+
+.btnCounterMin {
+    margin-right: 19px;
+}
+
+.btnCounterPlus {
+    margin: 0 20px 0 22px;
+}
+
+.addAgeChildren {
+    display: none;
+    background-color: #FFFFFF;
+    font-size: 12px;
+    margin: 0 22px 12px 19px;
+}
+
+.selectors {
+    display: block;
+}
+
+.selectors>select {
+    width: 100px;
+    height: 30px;
+    padding-left: 5px;
+    margin: 0 0 12px 20px;
+    border: 1px solid #3077C6;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.selectors>select:nth-child(2n){
+    margin-left: 12px;
+}
+
+.select:focus {
+    outline: none;
+    box-shadow: none;
+    border: solid 1px #3077C6;
+}
