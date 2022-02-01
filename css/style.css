@@ -569,12 +569,9 @@ body {
 }
 
 .overviews__slider .slick-slider {
+  display: flex;
   margin: 0;
   padding: 0;
-}
-
-.overviews__items {
-  display: flex;
 }
 
 .overviews__item {
@@ -592,6 +589,7 @@ body {
   display: block;
   height: 296px;
   width: 296px;
+  object-fit: cover;
 }
 
 .overviews__tittle {
