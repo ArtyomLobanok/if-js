@@ -70,6 +70,7 @@ const inputs = mainForm.getElementsByClassName("thirdInputs");
 const childrenSelectors = document.getElementById("childrenSelectors");
 
 const inputsValidation = {
+
     adults: {
         min: 1,
         max: 30,
@@ -82,13 +83,13 @@ const inputsValidation = {
         defaultValue: 0,
         counterElementId: "childrenCounter",
         additionalChanges: input => {
-            console.log("here");
             const { value } = input;
             if (value > 0) {
                 document.getElementById("childrenSelectorsTitle").style.display = "block";
             } else {
                 document.getElementById("childrenSelectorsTitle").style.display = "none";
             }
+            if ({ value })
             childrenSelectors.innerHTML = "";
             for (let i = 0; i < value; i++) {
                 const newSelect = document.createElement('select');
@@ -106,12 +107,21 @@ const inputsValidation = {
         defaultValue: 1,
         counterElementId: "roomsCounter",
     },
-
 };
+console.log(inputsValidation.adults.max)
+console.log(inputsValidation.children.max)
+console.log(inputsValidation.rooms.max)
+
+
 
 const inputDefaultInitialization = (input) => {
     const { min, max, defaultValue, counterElementId, additionalChanges } = inputsValidation[input.name];
     input.value = defaultValue;
+    const ElChang = () => {
+        counterElement.textContent = input.value;
+        if (additionalChanges) {
+            additionalChanges(input);
+        }}
     const counterElement = document.getElementById(counterElementId);
     counterElement.textContent = defaultValue;
     const btns = input.closest(".numberChanger").getElementsByTagName("button");
@@ -122,10 +132,7 @@ const inputDefaultInitialization = (input) => {
                 if (min < input.value) {
                     input.value--;
                 }
-                counterElement.textContent = input.value;
-                if (additionalChanges) {
-                    additionalChanges(input);
-                }
+                ElChang()
             });
         } else {
             btn.addEventListener('click', () => {
@@ -133,36 +140,12 @@ const inputDefaultInitialization = (input) => {
                 if (max > input.value) {
                     input.value++;
                 }
-                counterElement.textContent = input.value;
-                if (additionalChanges) {
-                    additionalChanges(input);
-                }
+                ElChang()
             });
         }
     }
-    if (input.value !== min) {
-        let elements = document.getElementsByClassName("btnCounterPlus");
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].classList.add("btnActive");
-        }
-    } else if (input.value === max) {
-        let elements = document.getElementsByClassName("btnCounterPlus");
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].classList.remove("btnActive");
-        }
-    }
-    else if (input.value !== min) {
-        let elements2 = document.getElementsByClassName("btnCounterMin");
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].classList.add("btnActive");
-        }
-    }
-    else if (input.value === max) {
-        let elements2 = document.getElementsByClassName("btnCounterMin");
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].classList.remove("btnActive");
-        }
-    }
+
+
 };
 
 for (let input of inputs) {
@@ -177,6 +160,49 @@ const getChildrenSelectorValues = () => {
     }
     return childAgesData.toString();
 }
+
+//add color and remove colors btns +/-
+if (defaultValue = 0) {
+    let elements = document.getElementsByClassName("btnCounterPlus");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.add("btnActive");
+    }
+}
+else if (defaultValue < 31) {
+    let elements = document.getElementsByClassName("btnCounterPlus");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("btnActive");
+    }
+}
+else if (defaultValue >= 1) {
+    let elements2 = document.getElementsByClassName("btnCounterMin");
+    for (let i = 0; i < elements2.length; i++) {
+        elements2[i].classList.add("btnActive");
+    }
+}
+else if (defaultValue <= 1) {
+    let elements2 = document.getElementsByClassName("btnCounterMin");
+    for (let i = 0; i < elements2.length; i++) {
+        elements2[i].classList.remove("btnActive");
+    }
+}
+
+/*Open/close Modal */
+const openM = () => {
+    const Main = document.getElementById("openModalW");
+    const modalMenu = document.getElementById("modalMenu");
+    const test = document.getElementById("test1");
+Main.onclick = openModal;
+function openModal() {
+    modalMenu.style.display = "block";
+}
+    window.onclick = closeModal;
+function closeModal() {
+    modalMenu.style.display = "none";
+}
+}
+openM()
+
 /*HT-12/2 */
 mainForm.onsubmit = async (event) => {
     event.preventDefault();
@@ -186,4 +212,5 @@ mainForm.onsubmit = async (event) => {
     const res = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
     const resJSON = await res.json();
     console.log(resJSON);
+    console.log(getChildrenSelectorValues())
 }
