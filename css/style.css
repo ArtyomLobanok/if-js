@@ -394,8 +394,7 @@ body {
   padding-right: 5px;
 }
 
-.intro__form .third__input:hover,
-.formInputs:active {
+.intro__form .third__input:hover, .third__inputActive  {
   border: none;
   outline: 3px solid #F5BD41;
 }
@@ -411,11 +410,14 @@ body {
   color: #FFFFFF;
   font-weight: 400;
 }
-
-.activateSecondMenu {
-  display: none;
+.positionModalMenu {
+  position: relative;
+}
+.modalMenu {
+  visibility: hidden;
+  opacity: 2;
   position: absolute;
-  right: 0;
+  right: 193px;
   top: 77px;
   max-width: 259px;
   max-height: 256px;
@@ -423,6 +425,12 @@ body {
   font-size: 16px;
   overflow-y: scroll;
   background-color: #FFFFFF;
+}
+
+.modalMenu.open {
+  transition: .2s visibility linear, .2s opacity linear;
+  visibility: visible;
+  opacity: 1;
 }
 
 ::-webkit-scrollbar {

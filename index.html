@@ -156,7 +156,7 @@
                                 </div>
                             </div>
 
-                            <div class="third__input" id="openModalW">
+                            <div class="third__input" id="mainMenu">
                                 <div class="form__item input">
                                     <span class="counterNumber" id="adultsCounter"></span>
                                     Adults
@@ -165,14 +165,16 @@
                                 <div class="input">
                                     <span class="counterNumber" id="childrenCounter"></span>
                                     Children
-                                    <span class="inputHyphen">—</span>
+                                    <span class="third__inputHyphen">—</span>
                                 </div>
                                 <div class="input">
                                     <span class="counterNumber" id="roomsCounter"></span>
                                     Room
                                 </div>
-
-                                <div class="activateSecondMenu" id="modalMenu">
+                            </div>
+                            <div class="positionModalMenu">
+                                <button class="form__button search">Search</button>
+                                <div class="modalMenu" id="modalMenu">
                                     <div class="counterContainer">
                                         <div class="namesNumberChanger">
                                             <label for="adultsInput">Adults</label>
@@ -183,39 +185,35 @@
                                             <div class="counter">
                                                 <div class="numberChanger">
                                                     <button type="button" class="btnCounterMin">-</button>
-                                                    <input class="thirdInputs" id="adultsInput" type="number" disabled name="adults"/>
-                                                    <button type="button" class="btnCounterPlus ">+</button>
+                                                    <input class="thirdInputs" id="adultsInput" type="number" disabled
+                                                           name="adults"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
                                                 </div>
                                             </div>
                                             <div class="counter">
                                                 <div class="numberChanger">
                                                     <button type="button" class="btnCounterMin ">-</button>
-                                                    <input class="thirdInputs" id="childrenInput" type="number" disabled name="children"/>
-                                                    <button type="button" class="btnCounterPlus ">+</button>
+                                                    <input class="thirdInputs" id="childrenInput" type="number" disabled
+                                                           name="children"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
                                                 </div>
                                             </div>
                                             <div class="counter">
                                                 <div class="numberChanger">
                                                     <button type="button" class="btnCounterMin ">-</button>
-                                                    <input class="thirdInputs" id="roomsInput" type="number" disabled name="rooms"/>
-                                                    <button type="button" class="btnCounterPlus ">+</button>
+                                                    <input class="thirdInputs" id="roomsInput" type="number" disabled
+                                                           name="rooms"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="addAgeChildren" id="childrenSelectorsTitle">
                                         What is the age of the child you’re <br> travelling with?
                                     </div>
-                                    <div class="selectors" id="childrenSelectors">
-
-                                    </div>
+                                    <div class="selectors" id="childrenSelectors"></div>
                                 </div>
                             </div>
-
-                            <button class="form__button search">Search</button>
-
-
                         </form>
                     </div>
                     <div class="intro__icons">

@@ -124,28 +124,34 @@ const inputDefaultInitialization = (input) => {
         }}
     const counterElement = document.getElementById(counterElementId);
     counterElement.textContent = defaultValue;
-    const btns = input.closest(".numberChanger").getElementsByTagName("button");
+    const btns = Array.prototype.slice.call( input.closest(".numberChanger").getElementsByTagName("button") );
     for (let btn of btns) {
         if (btn.textContent === "-") {
             btn.addEventListener('click', () => {
-                //TODO add styles changing
+                const plusBtn = btns.find(btn => btn.textContent === "+");
                 if (min < input.value) {
                     input.value--;
+                    plusBtn.classList.add("btnActive");
+                }
+                if(input.value <= min) {
+                    btn.classList.remove("btnActive");
                 }
                 ElChang()
             });
         } else {
             btn.addEventListener('click', () => {
-                //TODO add styles changing
+                const minusBtn = btns.find(btn => btn.textContent === "-");
                 if (max > input.value) {
                     input.value++;
+                    minusBtn.classList.add("btnActive");
+                }
+                if(input.value >= max) {
+                    btn.classList.remove("btnActive");
                 }
                 ElChang()
             });
         }
     }
-
-
 };
 
 for (let input of inputs) {
@@ -161,47 +167,29 @@ const getChildrenSelectorValues = () => {
     return childAgesData.toString();
 }
 
-//add color and remove colors btns +/-
-if (defaultValue = 0) {
-    let elements = document.getElementsByClassName("btnCounterPlus");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.add("btnActive");
-    }
-}
-else if (defaultValue < 31) {
-    let elements = document.getElementsByClassName("btnCounterPlus");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.remove("btnActive");
-    }
-}
-else if (defaultValue >= 1) {
-    let elements2 = document.getElementsByClassName("btnCounterMin");
-    for (let i = 0; i < elements2.length; i++) {
-        elements2[i].classList.add("btnActive");
-    }
-}
-else if (defaultValue <= 1) {
-    let elements2 = document.getElementsByClassName("btnCounterMin");
-    for (let i = 0; i < elements2.length; i++) {
-        elements2[i].classList.remove("btnActive");
-    }
+/*Open/close Modal && add ActiveClass to imput */
+const mainMenu = document.getElementById('mainMenu');
+const menu = document.querySelector('.modalMenu');
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+    mainMenu.classList.toggle('third__inputActive')
 }
 
-/*Open/close Modal */
-const openM = () => {
-    const Main = document.getElementById("openModalW");
-    const modalMenu = document.getElementById("modalMenu");
-    const test = document.getElementById("test1");
-Main.onclick = openModal;
-function openModal() {
-    modalMenu.style.display = "block";
-}
-    window.onclick = closeModal;
-function closeModal() {
-    modalMenu.style.display = "none";
-}
-}
-openM()
+mainMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_mainMenu = target == mainMenu;
+    const menu_is_active = menu.classList.contains('open');
+
+    if (!its_menu && !its_mainMenu && menu_is_active) {
+        toggleMenu();
+    }
+});
+
 
 /*HT-12/2 */
 mainForm.onsubmit = async (event) => {
@@ -209,8 +197,8 @@ mainForm.onsubmit = async (event) => {
     const adults = event.target.adults.value;
     const children = getChildrenSelectorValues();
     const rooms = event.target.rooms.value;
-    const res = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
-    const resJSON = await res.json();
+    const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
+    const resJSON = await response.json();
     console.log(resJSON);
-    console.log(getChildrenSelectorValues())
+    console.log(getChildrenSelectorValues());
 }
