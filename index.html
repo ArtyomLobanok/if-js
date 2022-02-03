@@ -132,7 +132,7 @@
                 <div class="intro__content">
                     <h1 class="intro__title">Discover stays <br> to live, work or just relax</h1>
                     <div class="intro__wrapper">
-                        <form class="intro__form">
+                        <form class="intro__form" id="mainForm">
                             <div class="first__input">
                                 <a href="#" class="form__icon">
                                     <svg class="icon__search">
@@ -155,26 +155,65 @@
                                     <label class="form__label" for="out_date">Check-out date</label>
                                 </div>
                             </div>
-                            <div class="third__input">
-                                <div class="form__item">
-                                    <input type="text" name="Adults" id="Adults" class="form__input" required>
-                                    <label class="form__label" for="Adults">Adults</label>
+
+                            <div class="third__input" id="mainMenu">
+                                <div class="form__item input">
+                                    <span class="counterNumber" id="adultsCounter"></span>
+                                    Adults
+                                    <span class="third__inputHyphen">—</span>
                                 </div>
-                                <hr class="form__devider">
-                                <div class="form__item">
-                                    <input type="text" name="Children" id="Children" class="form__input"
-                                           required>
-                                    <label class="form__label " for="Children">Children</label>
+                                <div class="input">
+                                    <span class="counterNumber" id="childrenCounter"></span>
+                                    Children
+                                    <span class="third__inputHyphen">—</span>
                                 </div>
-                                <hr class="form__devider">
-                                <div class="form__item">
-                                    <input type="text" name="Rooms" id="Rooms" class="form__input" required>
-                                    <label class="form__label" for="Rooms">Rooms</label>
+                                <div class="input">
+                                    <span class="counterNumber" id="roomsCounter"></span>
+                                    Room
                                 </div>
                             </div>
-                            <a class="form__btn" href="#">
-                                <button class="form__button">Search</button>
-                            </a>
+                            <div class="positionModalMenu">
+                                <button class="form__button search">Search</button>
+                                <div class="modalMenu" id="modalMenu">
+                                    <div class="counterContainer">
+                                        <div class="namesNumberChanger">
+                                            <label for="adultsInput">Adults</label>
+                                            <label for="childrenInput">Children</label>
+                                            <label for="roomsInput">Rooms</label>
+                                        </div>
+                                        <div class="counters">
+                                            <div class="counter">
+                                                <div class="numberChanger">
+                                                    <button type="button" class="btnCounterMin">-</button>
+                                                    <input class="thirdInputs" id="adultsInput" type="number" disabled
+                                                           name="adults"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="counter">
+                                                <div class="numberChanger">
+                                                    <button type="button" class="btnCounterMin ">-</button>
+                                                    <input class="thirdInputs" id="childrenInput" type="number" disabled
+                                                           name="children"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="counter">
+                                                <div class="numberChanger">
+                                                    <button type="button" class="btnCounterMin ">-</button>
+                                                    <input class="thirdInputs" id="roomsInput" type="number" disabled
+                                                           name="rooms"/>
+                                                    <button type="button" class="btnCounterPlus btnActive">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="addAgeChildren" id="childrenSelectorsTitle">
+                                        What is the age of the child you’re <br> travelling with?
+                                    </div>
+                                    <div class="selectors" id="childrenSelectors"></div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="intro__icons">
@@ -244,11 +283,7 @@
                 <h2 class="section__title">Homes guests loves</h2>
             </div>
             <div class="overviews">
-                <div class="overviews__slider">
-                    <div id="overviewsItem" class="overviews__items">
-
-                    </div>
-                </div>
+                <div id="overviewsItems" class="overviews__slider"></div>
             </div>
         </div>
     </section>
@@ -344,7 +379,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/Russia.png" alt="Picture the Russian river and mountains">
+                                <img src="./images/destinations/Russia.png"
+                                     alt="Picture the Russian river and mountains">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -395,7 +431,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/Russia.png" alt="Picture the Russian river and mountains">
+                                <img src="./images/destinations/Russia.png"
+                                     alt="Picture the Russian river and mountains">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -456,7 +493,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png" alt="Picture Barcelona, Spain">
+                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png"
+                                     alt="Picture Barcelona, Spain">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -467,7 +505,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png" alt="Picture Tbilisi, Georgina">
+                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png"
+                                     alt="Picture Tbilisi, Georgina">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -508,7 +547,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png" alt="Picture Barcelona, Spain">
+                                <img src="./images/destinations/tab2/Barcelona,%20Spain.png"
+                                     alt="Picture Barcelona, Spain">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -519,7 +559,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png" alt="Picture Tbilisi, Georgina">
+                                <img src="./images/destinations/tab2/Tbilisi,%20Georgia.png"
+                                     alt="Picture Tbilisi, Georgina">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -593,7 +634,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab3/Colosseum.png" alt="Picture Colosseum, Roma, Italy">
+                                <img src="./images/destinations/tab3/Colosseum.png"
+                                     alt="Picture Colosseum, Roma, Italy">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -638,7 +680,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab3/Cabo.png" alt="Picture Cabo da roca, Sintra, Portugal">
+                                <img src="./images/destinations/tab3/Cabo.png"
+                                     alt="Picture Cabo da roca, Sintra, Portugal">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>
@@ -689,7 +732,8 @@
                     <div class="destinations__item">
                         <div class="destinations__content">
                             <div class="destinations__img">
-                                <img src="./images/destinations/tab3/Cabo.png" alt="Picture Cabo da roca, Sintra, Portugal">
+                                <img src="./images/destinations/tab3/Cabo.png"
+                                     alt="Picture Cabo da roca, Sintra, Portugal">
                             </div>
                             <div class="destinations__button">
                                 <a href="#" target="_blank">Book now</a>

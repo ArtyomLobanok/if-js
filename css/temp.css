@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+/* display:none scroll line owerflowY */
+
+.counterContainer {
+    display: flex;
+    background-color: #FFF;
+}
+
+.namesNumberChanger {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 28px 28px 20px;
+}
+
+.namesNumberChanger label {
+    margin-bottom: 23px;
+}
+
+.namesNumberChanger label:last-child {
+    margin-bottom: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    text-align: center;
+    background: #FFF;
+    border: none;
+    max-height: 20px;
+    max-width: 25px
+}/* display:none border, background, and such size input (+/-)*/
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}/* display:none arrow (+/-)*/
+
