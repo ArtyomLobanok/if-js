@@ -44,30 +44,32 @@ const getResponseHotelsInformation = async () => {
         const response = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
         const keyName = 'hotels';
         let data = sessionStorage.getItem(keyName);
-        console.log(data)
-        const hotels = JSON.parse(data);
-        console.log(hotels)
-        let key;
-        for (key in hotels) {
-            overviewsItems.innerHTML += (`
-            <div class="overviews__item">
-            <div class="overviews__img">
-                <img src="${hotels[key].imageUrl}" alt="Pictures">
-            </div>
-            <div class="overviews__tittle">${hotels[key].name}</div>
-            <div class="overviews__location">${hotels[key].city}, ${hotels[key].country}</div>
-            </div>`);
-        }
-        startCarousel();
         if(data){
-                return JSON.parse(data);
+            return JSON.parse(data);
         }
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
+        console.log(data)
+
+        let key;
+        for (key in data) {
+            overviewsItems.innerHTML += (`
+            <div class="overviews__item">
+            <div class="overviews__img">
+                <img src="${data[key].imageUrl}" alt="Pictures">
+            </div>
+            <div class="overviews__tittle">${data[key].name}</div>
+            <div class="overviews__location">${data[key].city}, ${data[key].country}</div>
+            </div>`);
+        }
+
+
         return data;
+
     } catch (e) {
         console.error(e);
     } finally {
+        startCarousel();
     }
 }
 getResponseHotelsInformation();
