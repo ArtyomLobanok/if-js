@@ -37,31 +37,40 @@ const startCarousel = () => {
             slick.$slides.css('height', slick.$slideTrack.height() + 'px');
         })})};
 
-const getResponse = async () => {
+const getResponseHotelsInformation = async () => {
     console.log('Fetch todo started...');
     try {
-        const response = await fetch('https://fe-student-api.herokuapp.com/api/hotels/popular');
-        const content = await response.json();
-        console.log(content);
-        const list = document.getElementById('overviewsItems');
+        const overviewsItems = document.getElementById('overviewsItems');
+        const response = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
+        const keyName = 'hotels';
+        let data = sessionStorage.getItem(keyName);
+        console.log(data)
+        const hotels = JSON.parse(data);
+        console.log(hotels)
         let key;
-        for (key in content) {
-            list.innerHTML += (`
+        for (key in hotels) {
+            overviewsItems.innerHTML += (`
             <div class="overviews__item">
             <div class="overviews__img">
-                <img src="${content[key].imageUrl}" alt="Pictures">
+                <img src="${hotels[key].imageUrl}" alt="Pictures">
             </div>
-            <div class="overviews__tittle">${content[key].name}</div>
-            <div class="overviews__location">${content[key].city}, ${content[key].country}</div>
+            <div class="overviews__tittle">${hotels[key].name}</div>
+            <div class="overviews__location">${hotels[key].city}, ${hotels[key].country}</div>
             </div>`);
         }
         startCarousel();
+        if(data){
+                return JSON.parse(data);
+        }
+        data = await fetch(response).then(r => r.json());
+        sessionStorage.setItem(keyName, JSON.stringify(data));
+        return data;
     } catch (e) {
         console.error(e);
     } finally {
     }
 }
-getResponse();
+getResponseHotelsInformation();
 
 
 //lesson 11, 12-2;
@@ -108,11 +117,6 @@ const inputsValidation = {
         counterElementId: "roomsCounter",
     },
 };
-console.log(inputsValidation.adults.max)
-console.log(inputsValidation.children.max)
-console.log(inputsValidation.rooms.max)
-
-
 
 const inputDefaultInitialization = (input) => {
     const { min, max, defaultValue, counterElementId, additionalChanges } = inputsValidation[input.name];
@@ -181,8 +185,8 @@ mainMenu.addEventListener('click', function(e) {
 });
 document.addEventListener('click', function(e) {
     const target = e.target;
-    const its_menu = target == menu || menu.contains(target);
-    const its_mainMenu = target == mainMenu;
+    const its_menu = target === menu || menu.contains(target);
+    const its_mainMenu = target === mainMenu;
     const menu_is_active = menu.classList.contains('open');
 
     if (!its_menu && !its_mainMenu && menu_is_active) {
