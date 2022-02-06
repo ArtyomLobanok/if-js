@@ -36,35 +36,36 @@ const startCarousel = () => {
         }).on('setPosition', function (event, slick) {
             slick.$slides.css('height', slick.$slideTrack.height() + 'px');
         })})};
-
+const draw = (data) => {
+    const overviewsItems = document.getElementById('overviewsItems');
+    data.forEach(hotelCard  => {
+        overviewsItems.innerHTML += (`
+            <div class="overviews__item">
+            <div class="overviews__img">
+                <img src="${hotelCard.imageUrl}" alt="Pictures">
+            </div>
+            <div class="overviews__tittle">${hotelCard.name}</div>
+            <div class="overviews__location">${hotelCard.city}, ${hotelCard.country}</div>
+            </div>`);
+    });
+};
 const getResponseHotelsInformation = async () => {
     console.log('Fetch todo started...');
     try {
-        const overviewsItems = document.getElementById('overviewsItems');
         const response = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
         const keyName = 'hotels';
         let data = sessionStorage.getItem(keyName);
         if(data){
-            return JSON.parse(data);
+            data = JSON.parse(data);
+            console.log(data)
+            draw(data)
+            return data;
         }
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
-        console.log(data)
-
-        let key;
-        for (key in data) {
-            overviewsItems.innerHTML += (`
-            <div class="overviews__item">
-            <div class="overviews__img">
-                <img src="${data[key].imageUrl}" alt="Pictures">
-            </div>
-            <div class="overviews__tittle">${data[key].name}</div>
-            <div class="overviews__location">${data[key].city}, ${data[key].country}</div>
-            </div>`);
-        }
-
-
+        draw(data)
         return data;
+
 
     } catch (e) {
         console.error(e);
@@ -73,6 +74,7 @@ const getResponseHotelsInformation = async () => {
     }
 }
 getResponseHotelsInformation();
+
 
 
 //lesson 11, 12-2;
@@ -198,7 +200,9 @@ document.addEventListener('click', function(e) {
 
 
 /*HT-12/2 */
+
 mainForm.onsubmit = async (event) => {
+    try {
     event.preventDefault();
     const adults = event.target.adults.value;
     const children = getChildrenSelectorValues();
@@ -207,4 +211,21 @@ mainForm.onsubmit = async (event) => {
     const resJSON = await response.json();
     console.log(resJSON);
     console.log(getChildrenSelectorValues());
-}
+
+    const availableItems = document.getElementById('availableItems');
+        response.forEach(item  => {
+            availableItems.innerHTML += (`
+            <div class="overviews__item">
+            <div class="overviews__img">
+                <img src="${item.imageUrl}" alt="Pictures">
+            </div>
+            <div class="overviews__tittle">${item.name}</div>
+            <div class="overviews__location">${item.city}, ${item.country}</div>
+            </div>`);
+        });
+    } catch (e) {
+        console.error(e);
+    } finally {
+        startCarousel();
+    }
+};
