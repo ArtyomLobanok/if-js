@@ -200,7 +200,6 @@ document.addEventListener('click', function(e) {
 
 
 /*HT-12/2 */
-
 mainForm.onsubmit = async (event) => {
     try {
     event.preventDefault();
