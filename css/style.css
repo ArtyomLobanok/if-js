@@ -80,6 +80,10 @@ body {
   --columns__count: 12;
 }
 
+#availableHotels {
+  display: none;
+}
+
 .header {
   padding-top: 3.125rem;
   position: absolute;
@@ -670,7 +674,8 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 400;
 }
 
-.overviews {
+.overviews,
+.availableItems {
   position: relative;
 }
 
