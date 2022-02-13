@@ -35,10 +35,12 @@ const startCarousel = () => {
             ]
         }).on('setPosition', function (event, slick) {
             slick.$slides.css('height', slick.$slideTrack.height() + 'px');
-        })})};
+        })
+    })
+};
 const draw = (data) => {
     const overviewsItems = document.getElementById('overviewsItems');
-    data.forEach(hotelCard  => {
+    data.forEach(hotelCard => {
         overviewsItems.innerHTML += (`
             <div class="overviews__item">
             <div class="overviews__img">
@@ -55,7 +57,7 @@ const getResponseHotelsInformation = async () => {
         const response = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
         const keyName = 'hotels';
         let data = sessionStorage.getItem(keyName);
-        if(data){
+        if (data) {
             data = JSON.parse(data);
             console.log(data)
             draw(data)
@@ -72,9 +74,8 @@ const getResponseHotelsInformation = async () => {
     } finally {
         startCarousel();
     }
-}
+};
 getResponseHotelsInformation();
-
 
 
 //lesson 11, 12-2;
@@ -96,14 +97,14 @@ const inputsValidation = {
         defaultValue: 0,
         counterElementId: "childrenCounter",
         additionalChanges: input => {
-            const { value } = input;
+            const {value} = input;
             if (value > 0) {
                 document.getElementById("childrenSelectorsTitle").style.display = "block";
             } else {
                 document.getElementById("childrenSelectorsTitle").style.display = "none";
             }
-            if ({ value })
-            childrenSelectors.innerHTML = "";
+            if ({value})
+                childrenSelectors.innerHTML = "";
             for (let i = 0; i < value; i++) {
                 const newSelect = document.createElement('select');
                 newSelect.name = `select${i}`;
@@ -123,16 +124,17 @@ const inputsValidation = {
 };
 
 const inputDefaultInitialization = (input) => {
-    const { min, max, defaultValue, counterElementId, additionalChanges } = inputsValidation[input.name];
+    const {min, max, defaultValue, counterElementId, additionalChanges} = inputsValidation[input.name];
     input.value = defaultValue;
     const ElChang = () => {
         counterElement.textContent = input.value;
         if (additionalChanges) {
             additionalChanges(input);
-        }}
+        }
+    }
     const counterElement = document.getElementById(counterElementId);
     counterElement.textContent = defaultValue;
-    const btns = Array.prototype.slice.call( input.closest(".numberChanger").getElementsByTagName("button") );
+    const btns = Array.prototype.slice.call(input.closest(".numberChanger").getElementsByTagName("button"));
     for (let btn of btns) {
         if (btn.textContent === "-") {
             btn.addEventListener('click', () => {
@@ -141,7 +143,7 @@ const inputDefaultInitialization = (input) => {
                     input.value--;
                     plusBtn.classList.add("btnActive");
                 }
-                if(input.value <= min) {
+                if (input.value <= min) {
                     btn.classList.remove("btnActive");
                 }
                 ElChang()
@@ -153,7 +155,7 @@ const inputDefaultInitialization = (input) => {
                     input.value++;
                     minusBtn.classList.add("btnActive");
                 }
-                if(input.value >= max) {
+                if (input.value >= max) {
                     btn.classList.remove("btnActive");
                 }
                 ElChang()
@@ -178,16 +180,16 @@ const getChildrenSelectorValues = () => {
 /*Open/close Modal && add ActiveClass to imput */
 const mainMenu = document.getElementById('mainMenu');
 const menu = document.querySelector('.modalMenu');
-const toggleMenu = function() {
+const toggleMenu = function () {
     menu.classList.toggle('open');
     mainMenu.classList.toggle('third__inputActive')
 }
 
-mainMenu.addEventListener('click', function(e) {
+mainMenu.addEventListener('click', function (e) {
     e.stopPropagation();
     toggleMenu();
 });
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const target = e.target;
     const its_menu = target === menu || menu.contains(target);
     const its_mainMenu = target === mainMenu;
@@ -200,20 +202,12 @@ document.addEventListener('click', function(e) {
 
 
 /*HT-12/2 */
-mainForm.onsubmit = async (event) => {
-    try {
-    event.preventDefault();
-    const adults = event.target.adults.value;
-    const children = getChildrenSelectorValues();
-    const rooms = event.target.rooms.value;
-    const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
-    const resJSON = await response.json();
-    console.log(resJSON);
-    console.log(getChildrenSelectorValues());
+/*Carousel overviews responsive*/
 
+const drawAvailableHotels = (resJSON) => {
     const availableItems = document.getElementById('availableItems');
-        response.forEach(item  => {
-            availableItems.innerHTML += (`
+    resJSON.forEach(item => {
+        availableItems.innerHTML += (`
             <div class="overviews__item">
             <div class="overviews__img">
                 <img src="${item.imageUrl}" alt="Pictures">
@@ -221,7 +215,18 @@ mainForm.onsubmit = async (event) => {
             <div class="overviews__tittle">${item.name}</div>
             <div class="overviews__location">${item.city}, ${item.country}</div>
             </div>`);
-        });
+    });
+};
+mainForm.onsubmit = async (event) => {
+    try {
+        event.preventDefault();
+        const adults = event.target.adults.value;
+        const children = getChildrenSelectorValues();
+        const rooms = event.target.rooms.value;
+        const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
+        const resJSON = await response.json();
+        const showSectionAvailableHotels = document.getElementById("availableHotels").style.display = "block";
+        drawAvailableHotels(resJSON)
     } catch (e) {
         console.error(e);
     } finally {
