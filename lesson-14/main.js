@@ -30,10 +30,8 @@ inpFile.addEventListener("change", function () {
             console.log(this);
             previewImage.setAttribute("src", this.result);
         });
-
         reader.readAsDataURL(file);
     }
-    ;
 });
 
 function addElement() {
@@ -66,11 +64,11 @@ let test = function (str) {
             if (closeIndex !== openIndex) {
                 return false;
             }
-        }
-    }
+        };
+    };
     if (stack.length !== 0) {
         return false;
-    }
+    };
     return true;
 };
 console.log(test('{user: {name: "John", age: 21}}'));//true
