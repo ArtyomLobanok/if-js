@@ -59,16 +59,36 @@ const getResponseHotelsInformation = async () => {
         let data = sessionStorage.getItem(keyName);
         if (data) {
             data = JSON.parse(data);
-            console.log(data)
             draw(data)
+            console.log(data)
+
             return data;
         }
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
+        console.log(data)
+            //lesson15
+        // Sorting an Array(data) of Objects(hotels) with bubbles sort
+        function bubbleSort(arrName, keyName) {
+            let swapped;
+            do {
+                swapped = false;
+                for (let i = 0; i < arrName.length - 1; i++) {
+                    if (arrName[i][keyName] > arrName[i + 1][keyName]) {
+                        let temp = arrName[i];
+                        arrName[i] = arrName[i + 1];
+                        arrName[i + 1] = temp;
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
+        }
+        bubbleSort(data, 'name');
+        for (i = 0; i < data.length; i++) {
+            console.log(data[i]);
+        }
         draw(data)
         return data;
-
-
     } catch (e) {
         console.error(e);
     } finally {
@@ -225,7 +245,7 @@ mainForm.onsubmit = async (event) => {
         const rooms = event.target.rooms.value;
         const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
         const resJSON = await response.json();
-        const showSectionAvailableHotels = document.getElementById("availableHotels").style.display = "block";
+        document.getElementById("availableHotels").style.display = "block";
         drawAvailableHotels(resJSON)
     } catch (e) {
         console.error(e);
