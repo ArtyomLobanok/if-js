@@ -15,5 +15,8 @@
   "scripts": {
     "prepare": "husky install",
     "test": "jest"
+  },
+  "dependencies": {
+    "js-datepicker": "^5.18.0"
   }
 }

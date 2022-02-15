@@ -33,11 +33,10 @@ const startCarousel = () => {
                     }
                 }
             ]
-        }).on('setPosition', function (event, slick) {
-            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
         })
     })
 };
+
 const draw = (data) => {
     const overviewsItems = document.getElementById('overviewsItems');
     data.forEach(hotelCard => {
@@ -61,7 +60,6 @@ const getResponseHotelsInformation = async () => {
             data = JSON.parse(data);
             draw(data)
             console.log(data)
-
             return data;
         }
         data = await fetch(response).then(r => r.json());
@@ -222,11 +220,12 @@ document.addEventListener('click', function (e) {
 
 
 /*HT-12/2 */
+
 /*Carousel overviews responsive*/
 
-const drawAvailableHotels = (resJSON) => {
+const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
-    resJSON.forEach(item => {
+    dataAvailableHotels.forEach(item => {
         availableItems.innerHTML += (`
             <div class="overviews__item">
             <div class="overviews__img">
@@ -237,6 +236,7 @@ const drawAvailableHotels = (resJSON) => {
             </div>`);
     });
 };
+
 mainForm.onsubmit = async (event) => {
     try {
         event.preventDefault();
@@ -244,12 +244,48 @@ mainForm.onsubmit = async (event) => {
         const children = getChildrenSelectorValues();
         const rooms = event.target.rooms.value;
         const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
-        const resJSON = await response.json();
+        const dataAvailableHotels = await response.json();
         document.getElementById("availableHotels").style.display = "block";
-        drawAvailableHotels(resJSON)
+        drawAvailableHotels(dataAvailableHotels)
     } catch (e) {
         console.error(e);
     } finally {
-        startCarousel();
+        startCarousel2();
     }
+};
+const startCarousel2 = () => {
+    $(function () {
+        $('.availableHotels__slider').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            speed: 1000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 360,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }
+            ]
+        })
+    })
 };
