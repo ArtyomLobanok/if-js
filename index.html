@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/slick/slick.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="air-datepicker-3/air-datepicker.css">
     <title>TripHouse-site</title>
 </head>
 <body>
@@ -140,17 +141,17 @@
                                     </svg>
                                 </a>
                                 <div class="form__item">
-                                    <input type="text" name="name" id="name" class="form__input" required>
+                                    <input autocomplete="off" type="text" name="name" id="name" class="form__input" required>
                                     <label class="form__label" for="name">Your destination or hotel name</label>
                                 </div>
                             </div>
                             <div class="second__input">
                                 <div class="form__item">
-                                    <input type="text" name="in_date" id="in_date" class="form__input" required>
+                                    <input autocomplete="off" name="in_date" id="in_date" class="form__input" required>
                                     <label class="form__label" for="in_date">Check-in date</label>
                                 </div>
                                 <div class="form__item">
-                                    <input type="text" name="out_date" id="out_date" class="form__input"
+                                    <input autocomplete="off" name="out_date" id="out_date" class="form__input"
                                            required>
                                     <label class="form__label" for="out_date">Check-out date</label>
                                 </div>
@@ -162,12 +163,12 @@
                                     Adults
                                     <span class="third__inputHyphen">—</span>
                                 </div>
-                                <div class="input">
+                                <div class="form__item input">
                                     <span class="counterNumber" id="childrenCounter"></span>
                                     Children
                                     <span class="third__inputHyphen">—</span>
                                 </div>
-                                <div class="input">
+                                <div class="form__item input">
                                     <span class="counterNumber" id="roomsCounter"></span>
                                     Room
                                 </div>
@@ -1034,6 +1035,8 @@
     </footer>
 </div>
 <link rel="stylesheet" href="js/slick/slick.js">
+<script src="air-datepicker-3/air-datepicker.js"></script>
+<script src="js/theCalendar.js"></script>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/slick/slick.min.js"></script>
 <script src="js/dataSliderAndSwitcher.js"></script>
