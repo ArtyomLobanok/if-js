@@ -375,6 +375,7 @@ body {
 }
 .intro__form .second__input .form__item .form__input {
   padding: 1.3125rem 0.5rem 1.25rem 0.5rem;
+  cursor: pointer;
 }
 .intro__form .second__input .form__item .form__label {
   left: 0.5rem;
@@ -385,13 +386,13 @@ body {
   position: relative;
   width: 32%;
   border-radius: 0.5rem;
-  border: 1px solid #CECECE;
   background-color: #FFF;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Roboto, sans-serif;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .intro__form .third__inputHyphen {
