@@ -225,6 +225,9 @@ document.addEventListener('click', function (e) {
 
 const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
+    while (availableItems.length > 0) {
+        availableItems[0].parentNode.removeChild(availableItems[0]);
+    }
     dataAvailableHotels.forEach(item => {
         availableItems.innerHTML += (`
             <div class="overviews__item">
@@ -234,8 +237,24 @@ const drawAvailableHotels = (dataAvailableHotels) => {
             <div class="overviews__tittle">${item.name}</div>
             <div class="overviews__location">${item.city}, ${item.country}</div>
             </div>`);
+
     });
+    // const clean = () => {
+    //     let i = 0;
+    //     while (i < dataAvailableHotels.length){
+    //         availableItems.remove()
+    //     }
+    //     i++;
+    // }
+    while (availableItems.length > 0) {
+        availableItems[0].parentNode.removeChild((availableItems[0]))
+    }
 };
+const stopSlick = () => {
+    $(function () {
+        $('.availableHotels__slider').slick('unslick');
+    })
+}
 
 mainForm.onsubmit = async (event) => {
     try {
@@ -247,6 +266,7 @@ mainForm.onsubmit = async (event) => {
         const dataAvailableHotels = await response.json();
         document.getElementById("availableHotels").style.display = "block";
         drawAvailableHotels(dataAvailableHotels)
+        stopSlick()
     } catch (e) {
         console.error(e);
     } finally {
