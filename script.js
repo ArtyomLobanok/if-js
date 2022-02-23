@@ -1,5 +1,5 @@
 // lesson-12
-/*Carousel overviews responsive*/
+//Carousel overviews responsive
 const startCarousel = () => {
     $(function () {
         $('.overviews__slider').slick({
@@ -94,7 +94,6 @@ const getResponseHotelsInformation = async () => {
     }
 };
 getResponseHotelsInformation();
-
 
 //lesson 11, 12-2;
 const mainForm = document.getElementById("mainForm");
@@ -195,7 +194,7 @@ const getChildrenSelectorValues = () => {
     return childAgesData.toString();
 }
 
-/*Open/close Modal && add ActiveClass to imput */
+//Open/close Modal && add ActiveClass to imput
 const mainMenu = document.getElementById('mainMenu');
 const menu = document.querySelector('.modalMenu');
 const toggleMenu = function () {
@@ -218,16 +217,11 @@ document.addEventListener('click', function (e) {
     }
 });
 
-
-/*HT-12/2 */
-
-/*Carousel overviews responsive*/
-
+//HT-12/2
+//Carousel overviews responsive
 const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
-    while (availableItems.length > 0) {
-        availableItems[0].parentNode.removeChild(availableItems[0]);
-    }
+    const overviewsItem = document.querySelector('overviews__item');
     dataAvailableHotels.forEach(item => {
         availableItems.innerHTML += (`
             <div class="overviews__item">
@@ -237,19 +231,12 @@ const drawAvailableHotels = (dataAvailableHotels) => {
             <div class="overviews__tittle">${item.name}</div>
             <div class="overviews__location">${item.city}, ${item.country}</div>
             </div>`);
-
     });
-    // const clean = () => {
-    //     let i = 0;
-    //     while (i < dataAvailableHotels.length){
-    //         availableItems.remove()
-    //     }
-    //     i++;
-    // }
     while (availableItems.length > 0) {
         availableItems[0].parentNode.removeChild((availableItems[0]))
     }
 };
+
 const stopSlick = () => {
     $(function () {
         $('.availableHotels__slider').slick('unslick');
@@ -273,6 +260,7 @@ mainForm.onsubmit = async (event) => {
         startCarousel2();
     }
 };
+
 const startCarousel2 = () => {
     $(function () {
         $('.availableHotels__slider').slick({
@@ -308,4 +296,7 @@ const startCarousel2 = () => {
             ]
         })
     })
+        .on('setPosition', (event, slick) => {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+        })
 };
