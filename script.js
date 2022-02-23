@@ -221,7 +221,6 @@ document.addEventListener('click', function (e) {
 //Carousel overviews responsive
 const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
-    const overviewsItem = document.querySelector('overviews__item');
     dataAvailableHotels.forEach(item => {
         availableItems.innerHTML += (`
             <div class="overviews__item">
