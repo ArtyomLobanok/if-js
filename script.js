@@ -230,7 +230,7 @@ const drawAvailableHotels = (dataAvailableHotels) => {
             <div class="overviews__tittle">${i.name}</div>
             <div class="overviews__location">${i.city}, ${i.country}</div>
             </div>`).join('');
-    while (dataAvailableHotels.length > 0) {
+while (dataAvailableHotels.length > 0) {
         dataAvailableHotels[0].parentNode.removeChild(dataAvailableHotels.length[0])
     }
 };
