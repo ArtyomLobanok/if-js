@@ -58,13 +58,11 @@ const getResponseHotelsInformation = async () => {
         let data = sessionStorage.getItem(keyName);
         if (data) {
             data = JSON.parse(data);
-            draw(data)
-            console.log(data)
+            draw(data);
             return data;
         }
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
-        console.log(data)
         //lesson15
         // Sorting an Array(data) of Objects(hotels) with bubbles sort
         function bubbleSort(arrName, keyName) {
@@ -230,9 +228,15 @@ const drawAvailableHotels = (dataAvailableHotels) => {
             <div class="overviews__tittle">${i.name}</div>
             <div class="overviews__location">${i.city}, ${i.country}</div>
             </div>`).join('');
-while (dataAvailableHotels.length > 0) {
+    console.log(drawAvailableHotels[0])
+    console.log(dataAvailableHotels.length)
+    console.log(dataAvailableHotels)
+    while (dataAvailableHotels.length > 0) {
         dataAvailableHotels[0].parentNode.removeChild(dataAvailableHotels.length[0])
+        console.log(dataAvailableHotels.length)
+        console.log(dataAvailableHotels)
     }
+
 };
 
 const stopSlick = () => {
@@ -244,6 +248,7 @@ const stopSlick = () => {
 mainForm.onsubmit = async (event) => {
     try {
         event.preventDefault();
+        stopSlick();
         const searchText = document.getElementById('searchName').value;
         const adults = event.target.adults.value;
         const children = getChildrenSelectorValues();
@@ -252,8 +257,7 @@ mainForm.onsubmit = async (event) => {
         const response = await fetch(url)
         const dataAvailableHotels = await response.json();
         document.getElementById("availableHotels").style.display = "block";
-        stopSlick()
-        drawAvailableHotels(dataAvailableHotels)
+        drawAvailableHotels(dataAvailableHotels);
     } catch (e) {
         console.error(e);
     } finally {
