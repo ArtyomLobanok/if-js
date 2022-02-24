@@ -65,7 +65,7 @@ const getResponseHotelsInformation = async () => {
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
         console.log(data)
-            //lesson15
+        //lesson15
         // Sorting an Array(data) of Objects(hotels) with bubbles sort
         function bubbleSort(arrName, keyName) {
             let swapped;
@@ -81,6 +81,7 @@ const getResponseHotelsInformation = async () => {
                 }
             } while (swapped);
         }
+
         bubbleSort(data, 'name');
         for (i = 0; i < data.length; i++) {
             console.log(data[i]);
@@ -194,7 +195,7 @@ const getChildrenSelectorValues = () => {
     return childAgesData.toString();
 }
 
-//Open/close Modal && add ActiveClass to imput
+//Open/close Modal && add ActiveClass to input
 const mainMenu = document.getElementById('mainMenu');
 const menu = document.querySelector('.modalMenu');
 const toggleMenu = function () {
@@ -221,19 +222,14 @@ document.addEventListener('click', function (e) {
 //Carousel overviews responsive
 const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
-    dataAvailableHotels.forEach(item => {
-        availableItems.innerHTML += (`
+    availableItems.innerHTML = dataAvailableHotels.map(i => `
             <div class="overviews__item">
             <div class="overviews__img">
-                <img src="${item.imageUrl}" alt="Pictures">
+                <img src="${i.imageUrl}" alt="Pictures">
             </div>
-            <div class="overviews__tittle">${item.name}</div>
-            <div class="overviews__location">${item.city}, ${item.country}</div>
-            </div>`);
-    });
-    while (availableItems.length > 0) {
-        availableItems[0].parentNode.removeChild((availableItems[0]))
-    }
+            <div class="overviews__tittle">${i.name}</div>
+            <div class="overviews__location">${i.city}, ${i.country}</div>
+            </div>`).join('');
 };
 
 const stopSlick = () => {
