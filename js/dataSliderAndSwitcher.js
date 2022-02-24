@@ -1,4 +1,4 @@
-/*Tabs destinations*/
+//Tabs destinations
 const tabDestinations = () => {
     const tabTriggersItems = document.querySelectorAll('.tabs-triggers__item');
     const tabsContentItems = document.querySelectorAll('.tabs-content__item');
@@ -78,7 +78,7 @@ const startTab = () => {
 };
 tabDestinations()
 
-/*Collapse destinations*/
+//Collapse destinations
 $(document).ready(() => {
     $(".destinations__collapse").click(() => {
         $(".destinations__wrapper__second").toggleClass("active");
@@ -98,7 +98,7 @@ $(document).ready(() => {
     });
 });
 
-/*Carousel destinationsCarousel responsive*/
+//Carousel destinationsCarousel responsive
 const destinationsCarousel = () => {
     $('.destinations__slider').slick({
         infinite: true,
@@ -155,7 +155,7 @@ const destinationsCarousel = () => {
 };
 destinationsCarousel()
 
-/*Carousel Reviews responsive*/
+//Carousel Reviews responsive
 const reviewsCarousel = () => {
 $('.reviews__block').slick({
     dots: false,

@@ -1,5 +1,5 @@
 // lesson-12
-/*Carousel overviews responsive*/
+//Carousel overviews responsive
 const startCarousel = () => {
     $(function () {
         $('.overviews__slider').slick({
@@ -65,7 +65,7 @@ const getResponseHotelsInformation = async () => {
         data = await fetch(response).then(r => r.json());
         sessionStorage.setItem(keyName, JSON.stringify(data));
         console.log(data)
-            //lesson15
+        //lesson15
         // Sorting an Array(data) of Objects(hotels) with bubbles sort
         function bubbleSort(arrName, keyName) {
             let swapped;
@@ -81,6 +81,7 @@ const getResponseHotelsInformation = async () => {
                 }
             } while (swapped);
         }
+
         bubbleSort(data, 'name');
         for (i = 0; i < data.length; i++) {
             console.log(data[i]);
@@ -94,7 +95,6 @@ const getResponseHotelsInformation = async () => {
     }
 };
 getResponseHotelsInformation();
-
 
 //lesson 11, 12-2;
 const mainForm = document.getElementById("mainForm");
@@ -195,7 +195,7 @@ const getChildrenSelectorValues = () => {
     return childAgesData.toString();
 }
 
-/*Open/close Modal && add ActiveClass to imput */
+//Open/close Modal && add ActiveClass to input
 const mainMenu = document.getElementById('mainMenu');
 const menu = document.querySelector('.modalMenu');
 const toggleMenu = function () {
@@ -218,24 +218,25 @@ document.addEventListener('click', function (e) {
     }
 });
 
-
-/*HT-12/2 */
-
-/*Carousel overviews responsive*/
-
+//HT-12/2
+//Carousel overviews responsive
 const drawAvailableHotels = (dataAvailableHotels) => {
     const availableItems = document.getElementById('availableItems');
-    dataAvailableHotels.forEach(item => {
-        availableItems.innerHTML += (`
+    availableItems.innerHTML = dataAvailableHotels.map(i => `
             <div class="overviews__item">
             <div class="overviews__img">
-                <img src="${item.imageUrl}" alt="Pictures">
+                <img src="${i.imageUrl}" alt="Pictures">
             </div>
-            <div class="overviews__tittle">${item.name}</div>
-            <div class="overviews__location">${item.city}, ${item.country}</div>
-            </div>`);
-    });
+            <div class="overviews__tittle">${i.name}</div>
+            <div class="overviews__location">${i.city}, ${i.country}</div>
+            </div>`).join('');
 };
+
+const stopSlick = () => {
+    $(function () {
+        $('.availableHotels__slider').slick('unslick');
+    })
+}
 
 mainForm.onsubmit = async (event) => {
     try {
@@ -247,12 +248,14 @@ mainForm.onsubmit = async (event) => {
         const dataAvailableHotels = await response.json();
         document.getElementById("availableHotels").style.display = "block";
         drawAvailableHotels(dataAvailableHotels)
+        stopSlick()
     } catch (e) {
         console.error(e);
     } finally {
         startCarousel2();
     }
 };
+
 const startCarousel2 = () => {
     $(function () {
         $('.availableHotels__slider').slick({
@@ -288,4 +291,7 @@ const startCarousel2 = () => {
             ]
         })
     })
+        .on('setPosition', (event, slick) => {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+        })
 };
