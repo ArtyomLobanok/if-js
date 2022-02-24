@@ -230,6 +230,9 @@ const drawAvailableHotels = (dataAvailableHotels) => {
             <div class="overviews__tittle">${i.name}</div>
             <div class="overviews__location">${i.city}, ${i.country}</div>
             </div>`).join('');
+while (dataAvailableHotels.length > 0) {
+        dataAvailableHotels[0].parentNode.removeChild(dataAvailableHotels.length[0])
+    }
 };
 
 const stopSlick = () => {
@@ -241,14 +244,16 @@ const stopSlick = () => {
 mainForm.onsubmit = async (event) => {
     try {
         event.preventDefault();
+        const searchText = document.getElementById('searchName').value;
         const adults = event.target.adults.value;
         const children = getChildrenSelectorValues();
         const rooms = event.target.rooms.value;
-        const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adults}&children=${children}&rooms=${rooms}`)
+        const url = `https://fe-student-api.herokuapp.com/api/hotels?search=${searchText}&adults=${adults}&children=${children}&rooms=${rooms}`;
+        const response = await fetch(url)
         const dataAvailableHotels = await response.json();
         document.getElementById("availableHotels").style.display = "block";
-        drawAvailableHotels(dataAvailableHotels)
         stopSlick()
+        drawAvailableHotels(dataAvailableHotels)
     } catch (e) {
         console.error(e);
     } finally {
