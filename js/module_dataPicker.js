@@ -1,4 +1,6 @@
-let dpMin, dpMax;
+export const datapicker = () => {
+let dpMin;
+let dpMax;
 
 dpMin = new AirDatepicker('#in_date', {
     autoClose: true,
@@ -24,4 +26,5 @@ dpMax = new AirDatepicker('#out_date', {
             maxDate: date
         })
     }
-});
+})
+};
